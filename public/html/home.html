@@ -31,26 +31,53 @@
                 <div id="islands" class="filterBoxItemClick">
                     Islands
                 </div>
-                <div id="Cannaregio" class="filterBoxItem" style="display: none">
+                <div id="Cannaregio" class="filterBoxItem" style="margin-left: 30px; display: none">
                     Cannaregio
                 </div>
-                <div id="Castello" class="filterBoxItem" style="display: none">
+                <div id="Castello" class="filterBoxItem" style="margin-left: 30px; display: none">
                     Castello
                 </div>
-                <div id="Dorsodouro" class="filterBoxItem" style="display: none">
+                <div id="Dorsodouro" class="filterBoxItem" style="margin-left: 30px; display: none">
                     Dorsodouro
                 </div>
-                <div id="Giudecca" class="filterBoxItem" style="display: none">
+                <div id="Giudecca" class="filterBoxItem" style="margin-left: 30px; display: none">
                     Giudecca
                 </div>
-                <div id="San Croce" class="filterBoxItem" style="display: none">
+                <div id="San Croce" class="filterBoxItem" style="margin-left: 30px; display: none">
                     San Croce
                 </div>
-                <div id="San Marco" class="filterBoxItem" style="display: none">
+                <div id="San Marco" class="filterBoxItem" style="margin-left: 30px; display: none">
                     San Marco
                 </div>
-                <div id="San Polo" class="filterBoxItem" style="display: none">
+                <div id="San Polo" class="filterBoxItem" style="margin-left: 30px; display: none">
                     San Polo
+                </div>
+                <div id="ramp" class="filterBoxItemClick">
+                    Ramps
+                </div>
+                <div id="perm" class="filterBoxItem" style="margin-left: 30px; display: none">
+                    Permanent
+                </div>
+                <div id="temp" class="filterBoxItem" style="margin-left: 30px; display: none">
+                    Temporary
+                </div>
+                <div id="railing" class="filterBoxItemClick">
+                    Railing
+                </div>
+                <div id="one" class="filterBoxItem" style="margin-left: 30px; display: none">
+                    One Side
+                </div>
+                <div id="both" class="filterBoxItem" style="margin-left: 30px; display: none">
+                    Both Sides
+                </div>
+                <div id="slip" class="filterBoxItem">
+                    Slip Stair Edging
+                </div>
+                <div id="opening" class="filterBoxItem">
+                    Bridge Opening
+                </div>
+                <div id="tactile" class="filterBoxItem">
+                    Tactile Pavement
                 </div>
 
                 <script>
@@ -62,6 +89,18 @@
                     var sc = document.getElementById("San Croce");
                     var sm = document.getElementById("San Marco");
                     var sp = document.getElementById("San Polo");
+
+                    var ramp = document.getElementById("ramp");
+                    var rampPer = document.getElementById("perm");
+                    var rampTemp = document.getElementById("temp");
+
+                    var rail = document.getElementById("railing");
+                    var railBoth = document.getElementById("both");
+                    var railOne = document.getElementById("one");
+
+                    var slip = document.getElementById("slip");
+                    var open = document.getElementById("opening");
+                    var tact = document.getElementById("tactile");
 
                     islands.addEventListener("click", function () {
                         //console.log(can.style.display);
@@ -82,6 +121,28 @@
                             sc.style.display = "none";
                             sm.style.display = "none";
                             sp.style.display = "none";
+                        }
+                    });
+
+                    ramp.addEventListener("click", function () {
+                        if(rampPer.style.display === "none"){
+                            rampPer.style.display = "block";
+                            rampTemp.style.display = "block";
+                        }
+                        else{
+                            rampPer.style.display = "none";
+                            rampTemp.style.display = "none";
+                        }
+                    });
+
+                    rail.addEventListener("click", function () {
+                        if(railBoth.style.display === "none"){
+                            railBoth.style.display = "block";
+                            railOne.style.display = "block";
+                        }
+                        else{
+                            railBoth.style.display = "none";
+                            railOne.style.display = "none";
                         }
                     });
 
@@ -139,6 +200,65 @@
                         }
                         else{
                             sp.style.color = "lightgray";
+                        }
+                    });
+
+                    rampPer.addEventListener("click", function () {
+                        if(rampPer.style.color === "lightgray"){
+                            rampPer.style.color = "white";
+                        }
+                        else{
+                            rampPer.style.color = "lightgray";
+                        }
+                    });
+                    rampTemp.addEventListener("click", function () {
+                        if(rampTemp.style.color === "lightgray") {
+                            rampTemp.style.color = "white";
+                        }
+                        else{
+                            rampTemp.style.color = "lightgray";
+                        }
+                    });
+
+                    railBoth.addEventListener("click", function () {
+                        if(railBoth.style.color === "lightgray"){
+                            railBoth.style.color = "white";
+                        }
+                        else{
+                            railBoth.style.color = "lightgray";
+                        }
+                    });
+                    railOne.addEventListener("click", function () {
+                        if(railOne.style.color === "lightgray") {
+                            railOne.style.color = "white";
+                        }
+                        else{
+                            railOne.style.color = "lightgray";
+                        }
+                    });
+
+                    slip.addEventListener("click", function () {
+                        if(slip.style.color === "lightgray"){
+                            slip.style.color = "white";
+                        }
+                        else{
+                            slip.style.color = "lightgray";
+                        }
+                    });
+                    open.addEventListener("click", function () {
+                        if(open.style.color === "lightgray") {
+                            open.style.color = "white";
+                        }
+                        else{
+                            open.style.color = "lightgray";
+                        }
+                    });
+                    tact.addEventListener("click", function () {
+                        if(tact.style.color === "lightgray") {
+                            tact.style.color = "white";
+                        }
+                        else{
+                            tact.style.color = "lightgray";
                         }
                     });
                 </script>
