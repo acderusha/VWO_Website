@@ -1,6 +1,24 @@
 #mapid {
     height: 500px;
     width: 700px;
+
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+}
+
+#searchBar {
+    width: 100%;
+
+    background-image: url('/public/images/search_icon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+
+    font-size: 18px;
+
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+
+    border: 1px solid #ddd;
 }
 
 .header {
@@ -17,7 +35,7 @@
 
 .headerBtn {
     cursor: pointer;
-    padding: 11px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
     margin: 3px 10px 10px 18px;
     font-size: 20px;
     font-family: "Helvetica";
