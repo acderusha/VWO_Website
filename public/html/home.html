@@ -13,14 +13,145 @@
             integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
             crossorigin=""></script>
 </head>
-<body>
-    <div>
-         Venice Without Obstacles
+<body style="padding-top: 50px">
+    <div class="body">
+        <div class="header" style="left: 0px">
+            <div id="homeBtn" class="headerBtn headerLeft"><b>HOME</b></div>
+            <div id="bridgeBtn" class="headerBtn headerLeft"><b>BRIDGES</b></div>
+        </div>
     </div>
-    <div id="mapid"></div>
+
+    <table>
+       <tr>
+           <th valign="top">
+            <div id="filterBox" class="filterBox">
+                <div style="color: lightgray; font-size: 20px;">
+                    Filters
+                </div>
+                <div id="islands" class="filterBoxItemClick">
+                    Islands
+                </div>
+                <div id="Cannaregio" class="filterBoxItem" style="display: none">
+                    Cannaregio
+                </div>
+                <div id="Castello" class="filterBoxItem" style="display: none">
+                    Castello
+                </div>
+                <div id="Dorsodouro" class="filterBoxItem" style="display: none">
+                    Dorsodouro
+                </div>
+                <div id="Giudecca" class="filterBoxItem" style="display: none">
+                    Giudecca
+                </div>
+                <div id="San Croce" class="filterBoxItem" style="display: none">
+                    San Croce
+                </div>
+                <div id="San Marco" class="filterBoxItem" style="display: none">
+                    San Marco
+                </div>
+                <div id="San Polo" class="filterBoxItem" style="display: none">
+                    San Polo
+                </div>
+
+                <script>
+                    var islands = document.getElementById("islands");
+                    var can = document.getElementById("Cannaregio");
+                    var cast = document.getElementById("Castello");
+                    var dors = document.getElementById("Dorsodouro");
+                    var giu = document.getElementById("Giudecca");
+                    var sc = document.getElementById("San Croce");
+                    var sm = document.getElementById("San Marco");
+                    var sp = document.getElementById("San Polo");
+
+                    islands.addEventListener("click", function () {
+                        //console.log(can.style.display);
+                        if(can.style.display === "none"){
+                            can.style.display = "block";
+                            cast.style.display = "block";
+                            dors.style.display = "block";
+                            giu.style.display = "block";
+                            sc.style.display = "block";
+                            sm.style.display = "block";
+                            sp.style.display = "block";
+                        }
+                        else{
+                            can.style.display = "none";
+                            cast.style.display = "none";
+                            dors.style.display = "none";
+                            giu.style.display = "none";
+                            sc.style.display = "none";
+                            sm.style.display = "none";
+                            sp.style.display = "none";
+                        }
+                    });
+
+                    can.addEventListener("click", function () {
+                        if(can.style.color === "lightgray"){
+                            can.style.color = "white";
+                        }
+                        else{
+                            can.style.color = "lightgray";
+                        }
+                    });
+                    cast.addEventListener("click", function () {
+                        if(cast.style.color === "lightgray"){
+                            cast.style.color = "white";
+                        }
+                        else{
+                            cast.style.color = "lightgray";
+                        }
+                    });
+                    dors.addEventListener("click", function () {
+                        if(dors.style.color === "lightgray"){
+                            dors.style.color = "white";
+                        }
+                        else{
+                            dors.style.color = "lightgray";
+                        }
+                    });
+                    giu.addEventListener("click", function () {
+                        if(giu.style.color === "lightgray"){
+                            giu.style.color = "white";
+                        }
+                        else{
+                            giu.style.color = "lightgray";
+                        }
+                    });
+                    sc.addEventListener("click", function () {
+                        if(sc.style.color === "lightgray"){
+                            sc.style.color = "white";
+                        }
+                        else{
+                            sc.style.color = "lightgray";
+                        }
+                    });
+                    sm.addEventListener("click", function () {
+                        if(sm.style.color === "lightgray"){
+                            sm.style.color = "white";
+                        }
+                        else{
+                            sm.style.color = "lightgray";
+                        }
+                    });
+                    sp.addEventListener("click", function () {
+                        if(sp.style.color === "lightgray") {
+                            sp.style.color = "white";
+                        }
+                        else{
+                            sp.style.color = "lightgray";
+                        }
+                    });
+                </script>
+            </div>
+           </th>
+           <th>
+               <div id="mapid"></div>
+           </th>
+       </tr>
+    </table>
     <script>
 
-        /* ---------------------------- Initialization Tutorial ------------------------------------ */
+        /* --------------------------------- Map Initialization  ------------------------------------ */
         var mymap = L.map('mapid').setView([45.437309, 12.335072], 14);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

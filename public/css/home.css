@@ -2,3 +2,63 @@
     height: 500px;
     width: 700px;
 }
+
+.header {
+    position: fixed;
+    width: 100%;
+    min-height: 50px;
+    height: 50px;
+    z-index: 1;
+
+    top: 0;
+    background-color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.headerBtn {
+    cursor: pointer;
+    padding: 11px 10px 10px 10px;
+    margin: 3px 10px 10px 18px;
+    font-size: 20px;
+    font-family: "Helvetica";
+    color: white;
+}
+
+.headerLeft {
+    float: left;
+}
+
+.headerRight {
+    float: right;
+}
+
+.filterBox {
+    background-color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+    min-width: 150px;
+    min-height: 300px;
+
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+}
+
+.filterBoxItem {
+    cursor: pointer;
+    text-align: left;
+    color: white;
+    font-size: 15px;
+    padding: 10px 10px 10px 10px;
+}
+
+.filterBoxItemClick {
+    cursor: pointer;
+    text-align: left;
+    color: lightgray;
+    font-size: 15px;
+    padding: 10px 10px 10px 10px;
+}
+
+.filterBoxItemClick:hover{
+    color: white;
+}
