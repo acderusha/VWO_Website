@@ -22,6 +22,9 @@ var server = http.createServer (function (req, res) {
         if(req.url === "/"){
             sendFile(res, 'public/html/home.html')
         }
+        else if(req.url === "/css/home.css") {
+            sendFile(res,'public/css/home.css', 'text/css')
+        }
         else{
             sendFile(res, 'public/index_404.html')
         }
