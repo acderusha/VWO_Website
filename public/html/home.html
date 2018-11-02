@@ -29,7 +29,7 @@
                     Filters
                 </div>
                 <div id="islands" class="filterBoxItemClick">
-                    Islands
+                    &#9656 Islands
                 </div>
                 <div id="Cannaregio" class="filterBoxItem" style="margin-left: 30px; display: none">
                     Cannaregio
@@ -53,7 +53,7 @@
                     San Polo
                 </div>
                 <div id="ramp" class="filterBoxItemClick">
-                    Ramps
+                    &#9656 Ramps
                 </div>
                 <div id="perm" class="filterBoxItem" style="margin-left: 30px; display: none">
                     Permanent
@@ -62,7 +62,7 @@
                     Temporary
                 </div>
                 <div id="railing" class="filterBoxItemClick">
-                    Railing
+                    &#9656 Railing
                 </div>
                 <div id="one" class="filterBoxItem" style="margin-left: 30px; display: none">
                     One Side
@@ -112,6 +112,8 @@
                             sc.style.display = "block";
                             sm.style.display = "block";
                             sp.style.display = "block";
+
+                            islands.innerHTML = "&#9662 Islands";
                         }
                         else{
                             can.style.display = "none";
@@ -121,6 +123,8 @@
                             sc.style.display = "none";
                             sm.style.display = "none";
                             sp.style.display = "none";
+
+                            islands.innerHTML = "&#9656 Islands";
                         }
                     });
 
@@ -128,10 +132,14 @@
                         if(rampPer.style.display === "none"){
                             rampPer.style.display = "block";
                             rampTemp.style.display = "block";
+
+                            ramp.innerHTML = "&#9662 Ramps";
                         }
                         else{
                             rampPer.style.display = "none";
                             rampTemp.style.display = "none";
+
+                            ramp.innerHTML = "&#9656 Ramps";
                         }
                     });
 
@@ -139,10 +147,14 @@
                         if(railBoth.style.display === "none"){
                             railBoth.style.display = "block";
                             railOne.style.display = "block";
+
+                            rail.innerHTML = "&#9662 Ramps";
                         }
                         else{
                             railBoth.style.display = "none";
                             railOne.style.display = "none";
+
+                            rail.innerHTML = "&#9656 Ramps";
                         }
                     });
 
