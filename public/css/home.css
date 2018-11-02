@@ -1,5 +1,6 @@
 #mapid {
-    height: 570px;
+    /* Fix height adjustment for later */
+    min-height: 77vh;
 
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 10px 10px;
