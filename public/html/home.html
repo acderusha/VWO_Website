@@ -21,9 +21,9 @@
         </div>
     </div>
 
-    <table width="100% !important">
+    <table id="table" width="100% !important">
        <tr>
-           <th valign="top">
+           <th class="filterSection" valign="top">
             <div id="filterBox" class="filterBox">
                 <div style="color: lightgray; font-size: 20px;">
                     Filters
@@ -265,10 +265,17 @@
             </div>
            </th>
            <th id="mapSection" valign="top">
-               <div align="left">
-                   <input type="text" id="searchBar" placeholder="Search Bridge name...">
+               <div align="left" style="padding: 10px">
+                   <input type="text" class="searchBar" id="searchBar" placeholder="Search Bridge Name...">
                </div>
                <div id="mapid"></div>
+               <script>
+                   var map = document.getElementById("mapid");
+                   var mapColumn = document.getElementById("mapSection");
+
+                   var width = mapColumn.getAttribute("width");
+                   map.style.width = width;
+               </script>
            </th>
        </tr>
     </table>

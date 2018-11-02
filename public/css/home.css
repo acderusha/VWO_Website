@@ -1,16 +1,19 @@
 #mapid {
-    height: 575px;
-    width: 800px;
+    height: 570px;
 
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 10px 10px;
 }
 
-#searchBar {
+.searchBar {
     font-size: 18px;
 
-    padding: 10px 10px 10px 10px;
-    margin: 10px 10px 10px 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+
+    padding: 10px 10px 8px 10px;
 
     border: 1px solid #ddd;
 }
@@ -42,6 +45,10 @@
 
 .headerRight {
     float: right;
+}
+
+.filterSection {
+    width: 200px;
 }
 
 .filterBox {
