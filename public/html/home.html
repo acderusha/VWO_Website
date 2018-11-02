@@ -280,7 +280,6 @@
        </tr>
     </table>
     <script>
-
         /* --------------------------------- Map Initialization  ------------------------------------ */
         var mymap = L.map('mapid').setView([45.437309, 12.335072], 14);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -299,7 +298,6 @@
                 .setContent("You clicked the map at " + e.latlng.toString())
                 .openOn(mymap);
         }
-
         mymap.on('click', onMapClick);
     </script>
 
