@@ -2,8 +2,9 @@ function addMapElements() {
     var bridges = [{
         "type": "Feature",
         "properties": {
-            "name": "Hospital Bridge",
-            "island": "Cannaregio / Castello",
+            "name": "Ponte DonÃ ",
+            "island1": "Cannaregio",
+            "island2": "Castello"
         },
         "geometry": {
             "type": "Polygon",
@@ -24,7 +25,31 @@ function addMapElements() {
                 [12.339643764463714,45.4436030075387]
             ]]
         }
-    }];
+    },{
+            "type": "Feature",
+            "properties": {
+                "name": "Ponte de la Panada",
+                "island1": "Cannaregio",
+                "island2": "null"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [[
+                    [12.341912833857192,45.44230762302502],
+                    [12.341870013183943,45.44226522770734],
+                    [12.341812167895437,45.44230023945249],
+                    [12.34172274807719,45.44234972538719],
+                    [12.341658392943863,45.44238863531758],
+                    [12.34169862712569,45.44242773061923],
+                    [12.34170033319225,45.442429570271635],
+                    [12.3417632977089,45.44239332783155],
+                    [12.34180707872671,45.44236815824586],
+                    [12.341817582606247,45.4423622830532],
+                    [12.341850526831493,45.4423433408778],
+                    [12.341912833857192,45.44230762302502]
+                ]]
+            }
+        }];
 
     /* ---------------------------- Map Interaction Functions --------------------------- */
 
@@ -96,9 +121,29 @@ function addMapElements() {
 
     // method that we will use to update the control based on feature properties passed
     info.update = function (props) {
-        this._div.innerHTML = '<h4>Bridge</h4>' +  (props ?
-            '<b>' + props.name + '</b><br />' + '<b> Island: </b>' + props.island
-            : 'Hover over a bridge');
+        try {
+            var attrs = Object.keys(props);
+            var attribute;
+            var value;
+
+            attribute = attrs[2];
+            value = props[attribute];
+        }
+        /* --------- Always Goes Here ---------- */
+        catch (e) {
+            /* -------- Only here to suppress null pointer error ---------- */
+        }
+
+        if(value != "null") {
+            this._div.innerHTML = '<h4>Bridge</h4>' + (props ?
+                '<b>' + props.name + '</b><br />' + '<b> Island1: </b>' + props.island1 + '</b><br />' + '<b> Island2: </b>' + props.island2
+                : 'Hover over a bridge');
+        }
+        else{
+            this._div.innerHTML = '<h4>Bridge</h4>' +  (props ?
+                '<b>' + props.name + '</b><br />' + '<b> Island: </b>' + props.island1
+                : 'Hover over a bridge');
+        }
     };
 
     info.addTo(mymap);
