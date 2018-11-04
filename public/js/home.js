@@ -1,5 +1,5 @@
 function addMapElements() {
-    var bridge1 = [{
+    var bridges = [{
         "type": "Feature",
         "geometry": {
             "type": "Polygon",
@@ -22,13 +22,56 @@ function addMapElements() {
         }
     }];
 
-    var myStyle = {
-        "color": "#ff7800",
-        "weight": 3,
-        "opacity": 1
-    };
+    /* ---------------------------- Map Interaction Functions --------------------------- */
 
-    L.geoJSON(bridge1, {
-        style: myStyle
+    /* ------ Bridge Highlight ----------- */
+    function style(feature) {
+        return {
+            fillColor: "#ff7800",
+            weight: 2,
+            opacity: 1,
+            color: 'purple',
+            dashArray: '3',
+            fillOpacity: 0.7
+        };
+    }
+
+    L.geoJson(bridges, {style: style}).addTo(mymap);
+
+    function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+    }
+
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+    }
+
+    function zoomToFeature(e) {
+        mymap.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+        });
+    }
+
+    geojson = L.geoJson(bridges, {
+        style: style,
+        onEachFeature: onEachFeature
     }).addTo(mymap);
+
 }
