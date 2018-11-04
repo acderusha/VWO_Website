@@ -1,6 +1,10 @@
 function addMapElements() {
     var bridges = [{
         "type": "Feature",
+        "properties": {
+            "name": "Hospital Bridge",
+            "island": "Cannaregio / Castello",
+        },
         "geometry": {
             "type": "Polygon",
             "coordinates": [[
@@ -25,6 +29,7 @@ function addMapElements() {
     /* ---------------------------- Map Interaction Functions --------------------------- */
 
     /* ------ Bridge Highlight ----------- */
+
     function style(feature) {
         return {
             fillColor: "#ff7800",
@@ -51,10 +56,13 @@ function addMapElements() {
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
             layer.bringToFront();
         }
+
+        info.update(layer.feature.properties);
     }
 
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
+        info.update();
     }
 
     function zoomToFeature(e) {
@@ -73,5 +81,26 @@ function addMapElements() {
         style: style,
         onEachFeature: onEachFeature
     }).addTo(mymap);
+
+    /* ---------------------------------- */
+
+    /* ------ Custom Info Control ----------- */
+
+    var info = L.control();
+
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+        this.update();
+        return this._div;
+    };
+
+    // method that we will use to update the control based on feature properties passed
+    info.update = function (props) {
+        this._div.innerHTML = '<h4>Bridge</h4>' +  (props ?
+            '<b>' + props.name + '</b><br />' + '<b> Island: </b>' + props.island
+            : 'Hover over a bridge');
+    };
+
+    info.addTo(mymap);
 
 }
