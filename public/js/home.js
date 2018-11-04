@@ -3,8 +3,8 @@ function addMapElements() {
         "type": "Feature",
         "properties": {
             "name": "Ponte DonÃ ",
-            "island1": "Cannaregio",
-            "island2": "Castello"
+            "district1": "Cannaregio",
+            "district2": "Castello"
         },
         "geometry": {
             "type": "Polygon",
@@ -29,8 +29,8 @@ function addMapElements() {
             "type": "Feature",
             "properties": {
                 "name": "Ponte de la Panada",
-                "island1": "Cannaregio",
-                "island2": "null"
+                "district1": "Cannaregio",
+                "district2": "null"
             },
             "geometry": {
                 "type": "Polygon",
@@ -136,12 +136,12 @@ function addMapElements() {
 
         if(value != "null") {
             this._div.innerHTML = '<h4>Bridge</h4>' + (props ?
-                '<b>' + props.name + '</b><br />' + '<b> Island1: </b>' + props.island1 + '</b><br />' + '<b> Island2: </b>' + props.island2
+                '<b>' + props.name + '</b><br />' + '<b> District1: </b>' + props.district1 + '</b><br />' + '<b> District2: </b>' + props.district2
                 : 'Hover over a bridge');
         }
         else{
             this._div.innerHTML = '<h4>Bridge</h4>' +  (props ?
-                '<b>' + props.name + '</b><br />' + '<b> Island: </b>' + props.island1
+                '<b>' + props.name + '</b><br />' + '<b> District: </b>' + props.district1
                 : 'Hover over a bridge');
         }
     };
