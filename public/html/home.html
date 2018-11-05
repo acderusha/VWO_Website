@@ -288,7 +288,14 @@
                        </th>
                        <th id="descBoxContainer">
                            <div id="descBox" class="descBox" >
-                               Something
+                               <button id="close" style="color: lightgray; background-color: black; float: right; border: none; font-size: 20px">&times;</button>
+                               <script>
+                                   var close = document.getElementById("close");
+                                   var container = document.getElementById("descBoxContainer");
+                                   close.addEventListener("click", function () {
+                                       container.style.display = "none";
+                                   })
+                               </script>
                            </div>
                        </th>
                    </tr>
