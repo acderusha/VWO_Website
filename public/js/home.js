@@ -4,7 +4,13 @@ function addMapElements() {
         "properties": {
             "name": "Ponte DonÃ ",
             "district1": "Cannaregio",
-            "district2": "Castello"
+            "district2": "Castello",
+            "ramp": "permanent",
+            "railing": "none",
+            "slip_stair": "yes",
+            "opening": "none",
+            "tactile": "none",
+            "private": "no"
         },
         "geometry": {
             "type": "Polygon",
@@ -30,7 +36,13 @@ function addMapElements() {
             "properties": {
                 "name": "Ponte de la Panada",
                 "district1": "Cannaregio",
-                "district2": "null"
+                "district2": "null",
+                "ramp": "none",
+                "railing": "both",
+                "slip_stair": "none",
+                "opening": "yes",
+                "tactile": "yes",
+                "private": "yes"
             },
             "geometry": {
                 "type": "Polygon",
@@ -91,6 +103,8 @@ function addMapElements() {
     }
 
     function zoomToFeature(e) {
+        var layer = e.target;
+
         mymap.fitBounds(e.target.getBounds());
 
         var container = document.getElementById("descBoxContainer");
@@ -98,6 +112,8 @@ function addMapElements() {
         container.style.display = "";
         container.width = "300px";
         description.style.display = "block";
+
+        addDescription(layer.feature.properties);
     }
 
     function onEachFeature(feature, layer) {
@@ -153,5 +169,135 @@ function addMapElements() {
     };
 
     info.addTo(mymap);
+}
 
+
+function addDescription(props){
+    var name;
+    var district1;
+    var district2;
+    var ramp;
+    var railing;
+    var slip;
+    var open;
+    var tact;
+    var priv;
+
+    try {
+        var attrs = Object.keys(props);
+        var attribute;
+        var value;
+
+        for(var i = 0; i<attrs.length; i++){
+            attribute = attrs[i];
+            value = props[attribute];
+
+            if(i === 0){
+                name = value;
+            }
+            else if(i === 1){
+                district1 = value;
+            }
+            else if(i === 2){
+                district2 = value;
+            }
+            else if(i === 3){
+                ramp = value;
+            }
+            else if(i === 4){
+                railing = value;
+            }
+            else if(i === 5){
+                slip = value;
+            }
+            else if(i === 6){
+                open = value;
+            }
+            else if(i === 7){
+                tact = value;
+            }
+            else if(i === 8){
+                priv = value;
+            }
+        }
+    }
+    /* --------- Always Goes Here ---------- */
+    catch (e) {
+        /* -------- Only here to suppress null pointer error ---------- */
+    }
+
+    /* --------- if statements determining what info on bridge description -------- */
+    var infoDiv = document.getElementById("infoDiv");
+    var accomDiv = document.getElementById("accomDiv");
+    var cautionDiv = document.getElementById("cautionDiv");
+
+    /* ------ Remove All Children from Div ------ */
+    while (infoDiv.firstChild) {
+        infoDiv.removeChild(infoDiv.firstChild);
+    }
+    while (accomDiv.firstChild) {
+        accomDiv.removeChild(accomDiv.firstChild);
+    }
+    while (cautionDiv.firstChild) {
+        cautionDiv.removeChild(cautionDiv.firstChild);
+    }
+
+    let nameLabel = document.createElement("label");
+    nameLabel.textContent = name;
+    nameLabel.className = "descBoxItem";
+    infoDiv.appendChild(nameLabel);
+
+    let distLabel1 = document.createElement("label");
+    distLabel1.textContent = district1;
+    distLabel1.className = "descBoxItem";
+    infoDiv.appendChild(distLabel1);
+
+    if(district2 != "null"){
+        let distLabel2 = document.createElement("label");
+        distLabel2.textContent = district2;
+        distLabel2.className = "descBoxItem";
+        infoDiv.appendChild(distLabel2);
+    }
+
+    if(ramp != "none"){
+        let rampLabel = document.createElement("label");
+        rampLabel.textContent = ramp;
+        rampLabel.className = "descBoxItem";
+        accomDiv.appendChild(rampLabel);
+    }
+
+    if(railing != "none"){
+        let railingLabel = document.createElement("label");
+        railingLabel.textContent = railing;
+        railingLabel.className = "descBoxItem";
+        accomDiv.appendChild(railingLabel);
+    }
+
+    if(slip != "none"){
+        let slipLabel = document.createElement("label");
+        slipLabel.textContent = slip;
+        slipLabel.className = "descBoxItem";
+        accomDiv.appendChild(slipLabel);
+    }
+
+    if(open != "none"){
+        let openLabel = document.createElement("label");
+        openLabel.textContent = slip;
+        openLabel.className = "descBoxItem";
+        cautionDiv.appendChild(openLabel);
+    }
+
+    if(tact != "none"){
+        let tactLabel = document.createElement("label");
+        tactLabel.textContent = slip;
+        tactLabel.className = "descBoxItem";
+        accomDiv.appendChild(tactLabel);
+    }
+
+    if(priv != "no"){
+        let privLabel = document.createElement("label");
+        privLabel.textContent = slip;
+        privLabel.className = "descBoxItem";
+        accomDiv.appendChild(privLabel);
+    }
 }
