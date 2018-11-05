@@ -278,10 +278,21 @@
             </div>
            </th>
            <th id="mapSection" valign="top">
-               <div align="left" style="padding: 10px">
+               <div align="left" style="padding: 10px; padding-bottom: 5px">
                    <input type="text" class="searchBar" id="searchBar" placeholder="Search Bridge Name...">
                </div>
-               <div id="mapid"></div>
+               <table id="mapDes" class="mapDescTable">
+                   <tr>
+                       <th>
+                           <div id="mapid"></div>
+                       </th>
+                       <th width="300px">
+                           <div class="descBox">
+                               Something
+                           </div>
+                       </th>
+                   </tr>
+               </table>
                <script>
                    var map = document.getElementById("mapid");
                    var mapColumn = document.getElementById("mapSection");
