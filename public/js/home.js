@@ -38,7 +38,7 @@ function addMapElements() {
                 "district1": "Cannaregio",
                 "district2": "null",
                 "ramp": "none",
-                "railing": "both",
+                "railing": "both_side",
                 "slip_stair": "none",
                 "opening": "yes",
                 "tactile": "yes",
@@ -243,61 +243,79 @@ function addDescription(props){
     }
 
     let nameLabel = document.createElement("label");
-    nameLabel.textContent = name;
+    nameLabel.textContent = "Name: " + name;
     nameLabel.className = "descBoxItem";
     infoDiv.appendChild(nameLabel);
 
     let distLabel1 = document.createElement("label");
-    distLabel1.textContent = district1;
+    distLabel1.textContent = "District: " + district1;
     distLabel1.className = "descBoxItem";
     infoDiv.appendChild(distLabel1);
 
     if(district2 != "null"){
         let distLabel2 = document.createElement("label");
-        distLabel2.textContent = district2;
+        distLabel2.textContent = "District: " + district2;
         distLabel2.className = "descBoxItem";
         infoDiv.appendChild(distLabel2);
     }
 
-    if(ramp != "none"){
+    if(ramp === "permanent"){
         let rampLabel = document.createElement("label");
-        rampLabel.textContent = ramp;
+        rampLabel.textContent = "Ramp: Permanent";
+        rampLabel.className = "descBoxItem";
+        accomDiv.appendChild(rampLabel);
+    }
+    else if(ramp === "temporary"){
+        let rampLabel = document.createElement("label");
+        rampLabel.textContent = "Ramp: Temporary";
         rampLabel.className = "descBoxItem";
         accomDiv.appendChild(rampLabel);
     }
 
-    if(railing != "none"){
+    if(railing === "one_side"){
         let railingLabel = document.createElement("label");
-        railingLabel.textContent = railing;
+        railingLabel.textContent = "Railing: One Side";
+        railingLabel.className = "descBoxItem";
+        accomDiv.appendChild(railingLabel);
+    }
+    else if(railing === "both_side"){
+        let railingLabel = document.createElement("label");
+        railingLabel.textContent = "Railing: Both Sides";
         railingLabel.className = "descBoxItem";
         accomDiv.appendChild(railingLabel);
     }
 
     if(slip != "none"){
         let slipLabel = document.createElement("label");
-        slipLabel.textContent = slip;
+        slipLabel.textContent = "Slip Stair Edging";
         slipLabel.className = "descBoxItem";
         accomDiv.appendChild(slipLabel);
     }
 
     if(open != "none"){
         let openLabel = document.createElement("label");
-        openLabel.textContent = slip;
+        openLabel.textContent = "Mooring Steps / Canal Opening";
         openLabel.className = "descBoxItem";
         cautionDiv.appendChild(openLabel);
     }
 
     if(tact != "none"){
         let tactLabel = document.createElement("label");
-        tactLabel.textContent = slip;
+        tactLabel.textContent = "Tactile Pavement";
         tactLabel.className = "descBoxItem";
         accomDiv.appendChild(tactLabel);
     }
 
     if(priv != "no"){
         let privLabel = document.createElement("label");
-        privLabel.textContent = slip;
+        privLabel.textContent = "Property: Private";
         privLabel.className = "descBoxItem";
-        accomDiv.appendChild(privLabel);
+        infoDiv.appendChild(privLabel);
+    }
+    else{
+        let privLabel = document.createElement("label");
+        privLabel.textContent = "Property: Public";
+        privLabel.className = "descBoxItem";
+        infoDiv.appendChild(privLabel);
     }
 }
