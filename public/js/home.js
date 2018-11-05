@@ -92,6 +92,12 @@ function addMapElements() {
 
     function zoomToFeature(e) {
         mymap.fitBounds(e.target.getBounds());
+
+        var container = document.getElementById("descBoxContainer");
+        var description = document.getElementById("descBox");
+        container.style.display = "";
+        container.width = "300px";
+        description.style.display = "block";
     }
 
     function onEachFeature(feature, layer) {
