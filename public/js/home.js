@@ -102,10 +102,24 @@ function addMapElements() {
         info.update();
     }
 
-    function zoomToFeature(e) {
+    function describeFeature(e) {
         var layer = e.target;
 
+        var container = document.getElementById("descBoxContainer");
+        var description = document.getElementById("descBox");
+        container.style.display = "";
+        container.width = "300px";
+        description.style.display = "block";
+
+        addDescription(layer.feature.properties);
+
+        //mymap.fitBounds(e.target.getBounds());
+    }
+
+    function zoomToFeature(e) {
         mymap.fitBounds(e.target.getBounds());
+
+        var layer = e.target;
 
         var container = document.getElementById("descBoxContainer");
         var description = document.getElementById("descBox");
@@ -120,7 +134,8 @@ function addMapElements() {
         layer.on({
             mouseover: highlightFeature,
             mouseout: resetHighlight,
-            click: zoomToFeature
+            click: describeFeature,
+            dblclick: zoomToFeature
         });
     }
 
@@ -318,4 +333,10 @@ function addDescription(props){
         privLabel.className = "descBoxItem";
         infoDiv.appendChild(privLabel);
     }
+}
+
+/* ------------------- Filter Functions ------------------ */
+
+function cannFilter() {
+
 }

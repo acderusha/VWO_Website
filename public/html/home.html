@@ -356,9 +356,11 @@
             accessToken: 'pk.eyJ1IjoidmVuaWNld2l0aG91dG9ic3RhY2xlcyIsImEiOiJjam55azU0MHgxNTR4M3BrYjh2NzV1d3lyIn0.6EVMzVUveIUc-0BJfMijJw'
         }).addTo(mymap);
 
-        var popup = L.popup();
+        mymap.doubleClickZoom.disable();
 
-        /*function onMapClick(e) {
+        /*var popup = L.popup();
+
+        function onMapClick(e) {
             popup
                 .setLatLng(e.latlng)
                 .setContent("You clicked the map at " + e.latlng.toString())
