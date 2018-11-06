@@ -1,81 +1,138 @@
-function addMapElements() {
-    var bridges = [{
-        "type": "Feature",
-        "properties": {
-            "name": "Ponte DonÃ ",
-            "district1": "Cannaregio",
-            "district2": "Castello",
-            "ramp": "permanent",
-            "railing": "none",
-            "slip_stair": "yes",
-            "opening": "none",
-            "tactile": "none",
-            "private": "no"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [[
-                [12.339643764463714,45.4436030075387],
-                [12.3397462498444,45.44354707795633],
-                [12.339837915100942,45.44349476601351],
-                [12.339994164918462,45.44340544031664],
-                [12.339992134442374,45.443403773073285],
-                [12.339944035020189,45.443363773947276],
-                [12.339826200443365,45.44342771573011],
-                [12.339810054235922,45.44343696912819],
-                [12.339615490531314,45.443547270898364],
-                [12.339529694516877,45.44359584958897],
-                [12.339448234104015,45.44364191935559],
-                [12.339490767524204,45.44368367890656],
-                [12.339493012879714,45.44368526116982],
-                [12.339643764463714,45.4436030075387]
-            ]]
-        }
-    },{
-            "type": "Feature",
-            "properties": {
-                "name": "Ponte de la Panada",
-                "district1": "Cannaregio",
-                "district2": "null",
-                "ramp": "none",
-                "railing": "both_side",
-                "slip_stair": "none",
-                "opening": "yes",
-                "tactile": "yes",
-                "private": "yes"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [[
-                    [12.341912833857192,45.44230762302502],
-                    [12.341870013183943,45.44226522770734],
-                    [12.341812167895437,45.44230023945249],
-                    [12.34172274807719,45.44234972538719],
-                    [12.341658392943863,45.44238863531758],
-                    [12.34169862712569,45.44242773061923],
-                    [12.34170033319225,45.442429570271635],
-                    [12.3417632977089,45.44239332783155],
-                    [12.34180707872671,45.44236815824586],
-                    [12.341817582606247,45.4423622830532],
-                    [12.341850526831493,45.4423433408778],
-                    [12.341912833857192,45.44230762302502]
-                ]]
-            }
-        }];
+var bridges = [{
+    "type": "Feature",
+    "properties": {
+        "name": "Ponte DonÃ ",
+        "district1": "Cannaregio",
+        "district2": "null",
+        "ramp": "permanent",
+        "railing": "none",
+        "slip_stair": "yes",
+        "opening": "none",
+        "tactile": "none",
+        "private": "yes"
+    },
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+            [12.339643764463714,45.4436030075387],
+            [12.3397462498444,45.44354707795633],
+            [12.339837915100942,45.44349476601351],
+            [12.339994164918462,45.44340544031664],
+            [12.339992134442374,45.443403773073285],
+            [12.339944035020189,45.443363773947276],
+            [12.339826200443365,45.44342771573011],
+            [12.339810054235922,45.44343696912819],
+            [12.339615490531314,45.443547270898364],
+            [12.339529694516877,45.44359584958897],
+            [12.339448234104015,45.44364191935559],
+            [12.339490767524204,45.44368367890656],
+            [12.339493012879714,45.44368526116982],
+            [12.339643764463714,45.4436030075387]
+        ]]
+    }
+},{
+    "type": "Feature",
+    "properties": {
+        "name": "Ponte de la Panada",
+        "district1": "Cannaregio",
+        "district2": "Castello",
+        "ramp": "none",
+        "railing": "both_side",
+        "slip_stair": "none",
+        "opening": "both_side",
+        "tactile": "yes",
+        "private": "no"
+    },
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+            [12.341912833857192,45.44230762302502],
+            [12.341870013183943,45.44226522770734],
+            [12.341812167895437,45.44230023945249],
+            [12.34172274807719,45.44234972538719],
+            [12.341658392943863,45.44238863531758],
+            [12.34169862712569,45.44242773061923],
+            [12.34170033319225,45.442429570271635],
+            [12.3417632977089,45.44239332783155],
+            [12.34180707872671,45.44236815824586],
+            [12.341817582606247,45.4423622830532],
+            [12.341850526831493,45.4423433408778],
+            [12.341912833857192,45.44230762302502]
+        ]]
+    }
+},{
+    "type": "Feature",
+    "properties": {
+        "name": "Ponte dei Mendicanti",
+        "district1": "Castello",
+        "district2": "null",
+        "ramp": "temporary",
+        "railing": "one_side",
+        "slip_stair": "none",
+        "opening": "one_side",
+        "tactile": "yes",
+        "private": "no"
+    },
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+            [12.342792943181951,45.44180946122445],
+            [12.34275158361336,45.44177187005166],
+            [12.3427157075657,45.441792634174654],
+            [12.342704818482382,45.44177753131999],
+            [12.342687905697275,45.44175373860059],
+            [12.34265312184466,45.44176471851598],
+            [12.342646566105508,45.4417673558149],
+            [12.34267593492723,45.441808807770315],
+            [12.34260077851,45.44185097668881],
+            [12.342506316883144,45.441902325807376],
+            [12.342510950718435,45.44190693348993],
+            [12.342455356277359,45.44193893807774],
+            [12.342500515685918,45.44197868772394],
+            [12.34257331718245,45.44193727402573],
+            [12.342664311514735,45.441885664155556],
+            [12.3427137417864,45.441856935857224],
+            [12.342794796815426,45.441810404331015],
+            [12.342792943181951,45.44180946122445]
+        ]]
+    }
+}];
 
+
+function addMapElements() {
     /* ---------------------------- Map Interaction Functions --------------------------- */
 
     /* ------ Bridge Highlight ----------- */
 
     function style(feature) {
-        return {
-            fillColor: "#ff7800",
-            weight: 2,
-            opacity: 1,
-            color: 'purple',
-            dashArray: '3',
-            fillOpacity: 0.7
-        };
+        if(feature.properties.district2 != 'null'){
+            return {
+                fillColor: "#ff7800",
+                weight: 2,
+                opacity: 1,
+                color: 'purple',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        } else if(feature.properties.district1 === 'Cannaregio'){
+            return {
+                fillColor: "yellow",
+                weight: 2,
+                opacity: 1,
+                color: 'purple',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        } else if(feature.properties.district1 === 'Castello') {
+            return {
+                fillColor: "red",
+                weight: 2,
+                opacity: 1,
+                color: 'purple',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
     }
 
     L.geoJson(bridges, {style: style}).addTo(mymap);
@@ -307,9 +364,16 @@ function addDescription(props){
         accomDiv.appendChild(slipLabel);
     }
 
-    if(open != "none"){
+    if(open === "one_side"){
         let openLabel = document.createElement("label");
-        openLabel.textContent = "Mooring Steps / Canal Opening";
+        openLabel.textContent = "Canal Opening: One Side";
+        openLabel.className = "descBoxItem";
+        cautionDiv.appendChild(openLabel);
+    }
+
+    else if(open === "both_side"){
+        let openLabel = document.createElement("label");
+        openLabel.textContent = "Canal Opening: Both Sides";
         openLabel.className = "descBoxItem";
         cautionDiv.appendChild(openLabel);
     }
@@ -337,6 +401,164 @@ function addDescription(props){
 
 /* ------------------- Filter Functions ------------------ */
 
-function cannFilter() {
+var cannaragio = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.district1 === "Cannaregio" || feature.properties.district2 === "Cannaregio"){
+            return true
+        }
+    }
+});
+var castello = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.district1 === "Castello" || feature.properties.district2 === "Castello"){
+            return true
+        }
+    }
+});
+var sanMarco = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.district1 === "San Marco" || feature.properties.district2 === "San Marco"){
+            return true
+        }
+    }
+});
+var sanPolo = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.district1 === "San Polo" || feature.properties.district2 === "San Polo"){
+            return true
+        }
+    }
+});
+var sanCroce = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.district1 === "San Croce" || feature.properties.district2 === "San Croce"){
+            return true
+        }
+    }
+});
+var dorsodouro = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.district1 === "Dorsodouro" || feature.properties.district2 === "Dorsodouro"){
+            return true
+        }
+    }
+});
+var giudecca = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.district1 === "Giudecca" || feature.properties.district2 === "Giudecca"){
+            return true
+        }
+    }
+});
 
+var ramp_per = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.ramp === "permanent"){
+            return true
+        }
+    }
+});
+var ramp_temp = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.ramp === "temporary"){
+            return true
+        }
+    }
+});
+var ramp_none = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.ramp === "none"){
+            return true
+        }
+    }
+});
+
+var rail_both = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.railing === "both_side"){
+            return true
+        }
+    }
+});
+var rail_one = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.railing === "one_side"){
+            return true
+        }
+    }
+});
+var rail_none = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.railing === "none"){
+            return true
+        }
+    }
+});
+
+var slip_install = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.slip_stair === "yes"){
+            return true
+        }
+    }
+});
+var slip_none = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.slip_stair === "none"){
+            return true
+        }
+    }
+});
+
+var open_both = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.opening === "both_side"){
+            return true
+        }
+    }
+});
+var open_one = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.opening === "one_side"){
+            return true
+        }
+    }
+});
+var open_none = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.opening === "none"){
+            return true
+        }
+    }
+});
+
+var tact_install = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.tactile === "yes"){
+            return true
+        }
+    }
+});
+var tact_none = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.tactile === "none"){
+            return true
+        }
+    }
+});
+
+var priv_bridge = L.geoJSON(bridges, {
+    filter: function(feature, layer) {
+        if (feature.properties.private === "yes"){
+            return true
+        }
+    }
+});
+
+function filter(aFilter) {
+    aFilter.addTo(mymap);
+}
+
+function filterCancel(aFilter) {
+    aFilter.remove();
 }

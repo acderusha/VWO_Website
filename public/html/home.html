@@ -19,7 +19,7 @@
     <div class="body">
         <div class="header" style="left: 0px">
             <div id="homeBtn" class="headerBtn headerLeft"><b>HOME</b></div>
-            <div id="bridgeBtn" class="headerBtn headerLeft"><b>BRIDGES</b></div>
+            <div id="bridgeBtn" class="headerBtn headerLeft"><b><u>BRIDGES</u></b></div>
         </div>
     </div>
 
@@ -33,53 +33,80 @@
                 <div id="islands" class="filterBoxItemClick">
                     &#9656 Islands
                 </div>
-                <div id="Cannaregio" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="Cannaregio" class="filterBoxItem" style="display: none; margin-left: 30px">
                     Cannaregio
                 </div>
-                <div id="Castello" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="Castello" class="filterBoxItem" style="display: none; margin-left: 30px">
                     Castello
                 </div>
-                <div id="Dorsodouro" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="Dorsodouro" class="filterBoxItem" style="display: none; margin-left: 30px">
                     Dorsodouro
                 </div>
-                <div id="Giudecca" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="Giudecca" class="filterBoxItem" style="display: none; margin-left: 30px">
                     Giudecca
                 </div>
-                <div id="San Croce" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="San Croce" class="filterBoxItem" style="display: none; margin-left: 30px">
                     San Croce
                 </div>
-                <div id="San Marco" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="San Marco" class="filterBoxItem" style="display: none; margin-left: 30px">
                     San Marco
                 </div>
-                <div id="San Polo" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="San Polo" class="filterBoxItem" style="display: none; margin-left: 30px">
                     San Polo
                 </div>
                 <div id="ramp" class="filterBoxItemClick">
                     &#9656 Ramps
                 </div>
-                <div id="perm" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="perm" class="filterBoxItem" style="display: none; margin-left: 30px">
                     Permanent
                 </div>
-                <div id="temp" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="temp" class="filterBoxItem" style="display: none; margin-left: 30px">
                     Temporary
+                </div>
+                <div id="ramp_none" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    No Ramp
                 </div>
                 <div id="railing" class="filterBoxItemClick">
                     &#9656 Railing
                 </div>
-                <div id="one" class="filterBoxItem" style="margin-left: 30px; display: none">
-                    One Side
-                </div>
-                <div id="both" class="filterBoxItem" style="margin-left: 30px; display: none">
+                <div id="both" class="filterBoxItem" style="display: none; margin-left: 30px">
                     Both Sides
                 </div>
-                <div id="slip" class="filterBoxItem">
-                    Slip Stair Edging
+                <div id="one" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    One Side
                 </div>
-                <div id="opening" class="filterBoxItem">
-                    Bridge Opening
+                <div id="rail_none" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    No Railings
                 </div>
-                <div id="tactile" class="filterBoxItem">
-                    Tactile Pavement
+                <div id="slip" class="filterBoxItemClick">
+                    &#9656 Slip Stair Edging
+                </div>
+                <div id="installSlip" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    Installed Edging
+                </div>
+                <div id="noneSlip" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    No Edging
+                </div>
+                <div id="opening" class="filterBoxItemClick">
+                    &#9656 Canal Opening
+                </div>
+                <div id="openBoth" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    Opening Both Sides
+                </div>
+                <div id="openOne" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    Opening One Side
+                </div>
+                <div id="openNone" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    No Openings
+                </div>
+                <div id="tactile" class="filterBoxItemClick">
+                    &#9656 Tactile Pavement
+                </div>
+                <div id="installTact" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    Installed Tactile
+                </div>
+                <div id="noneTact" class="filterBoxItem" style="display: none; margin-left: 30px">
+                    No Tactile
                 </div>
                 <div id="private" class="filterBoxItem">
                     Private
@@ -98,16 +125,29 @@
                     var ramp = document.getElementById("ramp");
                     var rampPer = document.getElementById("perm");
                     var rampTemp = document.getElementById("temp");
+                    var rampNone = document.getElementById("ramp_none");
 
                     var rail = document.getElementById("railing");
                     var railBoth = document.getElementById("both");
                     var railOne = document.getElementById("one");
+                    var railNone = document.getElementById("rail_none");
 
                     var slip = document.getElementById("slip");
+                    var slipInstall = document.getElementById("installSlip");
+                    var slipNone = document.getElementById("noneSlip");
+
                     var open = document.getElementById("opening");
+                    var openBoth = document.getElementById("openBoth");
+                    var openOne = document.getElementById("openOne");
+                    var openNone = document.getElementById("openNone");
+
                     var tact = document.getElementById("tactile");
+                    var tactInstall = document.getElementById("installTact");
+                    var tactNone = document.getElementById("noneTact");
+
                     var priv = document.getElementById("private");
 
+                    /* -------------------------- Display Event Listeners ---------------------- */
                     islands.addEventListener("click", function () {
                         //console.log(can.style.display);
                         if(can.style.display === "none"){
@@ -138,12 +178,14 @@
                         if(rampPer.style.display === "none"){
                             rampPer.style.display = "block";
                             rampTemp.style.display = "block";
+                            rampNone.style.display = "block";
 
                             ramp.innerHTML = "&#9662 Ramps";
                         }
                         else{
                             rampPer.style.display = "none";
                             rampTemp.style.display = "none";
+                            rampNone.style.display = "none";
 
                             ramp.innerHTML = "&#9656 Ramps";
                         }
@@ -153,138 +195,365 @@
                         if(railBoth.style.display === "none"){
                             railBoth.style.display = "block";
                             railOne.style.display = "block";
+                            railNone.style.display = "block";
 
                             rail.innerHTML = "&#9662 Railing";
                         }
                         else{
                             railBoth.style.display = "none";
                             railOne.style.display = "none";
+                            railNone.style.display = "none";
 
                             rail.innerHTML = "&#9656 Railing";
                         }
                     });
 
+                    slip.addEventListener("click", function () {
+                        if(slipInstall.style.display === "none"){
+                            slipInstall.style.display = "block";
+                            slipNone.style.display = "block";
+
+                            slip.innerHTML = "&#9662 Slip Stair Edging";
+                        }
+                        else{
+                            slipInstall.style.display = "none";
+                            slipNone.style.display = "none";
+
+                            slip.innerHTML = "&#9656 Slip Stair Edging";
+                        }
+                    });
+
+                    open.addEventListener("click", function () {
+                        if(openBoth.style.display === "none"){
+                            openBoth.style.display = "block";
+                            openOne.style.display = "block";
+                            openNone.style.display = "block";
+
+                            open.innerHTML = "&#9662 Canal Opening";
+                        }
+                        else{
+                            openBoth.style.display = "none";
+                            openOne.style.display = "none";
+                            openNone.style.display = "none";
+
+                            open.innerHTML = "&#9656 Canal Opening";
+                        }
+                    });
+
+                    tact.addEventListener("click", function () {
+                        if(tactInstall.style.display === "none"){
+                            tactInstall.style.display = "block";
+                            tactNone.style.display = "block";
+
+                            tact.innerHTML = "&#9662 Tactile Pavement";
+                        }
+                        else{
+                            tactInstall.style.display = "none";
+                            tactNone.style.display = "none";
+
+                            tact.innerHTML = "&#9656 Tactile Pavement";
+                        }
+                    });
+
+                    /* -------------------------- Filter Event Listeners ---------------------- */
                     can.addEventListener("click", function () {
                         if(can.style.color === "lightgray"){
                             can.style.color = "white";
+
+                            /* ---- Remove Canaregio Filter ---- */
+                            filterCancel(cannaragio);
                         }
                         else{
                             can.style.color = "lightgray";
+
+                            /* ---- Canaregio Filter ---- */
+                            filter(cannaragio);
                         }
                     });
                     cast.addEventListener("click", function () {
                         if(cast.style.color === "lightgray"){
                             cast.style.color = "white";
+
+                            /* ---- Remove Castello Filter ---- */
+                            filterCancel(castello);
                         }
                         else{
                             cast.style.color = "lightgray";
+
+                            /* ---- Castello Filter ---- */
+                            filter(castello);
                         }
                     });
                     dors.addEventListener("click", function () {
                         if(dors.style.color === "lightgray"){
                             dors.style.color = "white";
+
+                            /* ---- Remove Dorsodouro Filter ---- */
+                            filterCancel(dorsodouro);
                         }
                         else{
                             dors.style.color = "lightgray";
+
+                            /* ---- Dorsodouro Filter ---- */
+                            filter(dorsodouro);
                         }
                     });
                     giu.addEventListener("click", function () {
                         if(giu.style.color === "lightgray"){
                             giu.style.color = "white";
+
+                            /* ---- Remove Giudecca Filter ---- */
+                            filterCancel(giudecca);
                         }
                         else{
                             giu.style.color = "lightgray";
+
+                            /* ---- Giudecca Filter ---- */
+                            filter(giudecca);
                         }
                     });
                     sc.addEventListener("click", function () {
                         if(sc.style.color === "lightgray"){
                             sc.style.color = "white";
+
+                            /* ---- Remove San Croce Filter ---- */
+                            filterCancel(sanCroce);
                         }
                         else{
                             sc.style.color = "lightgray";
+
+                            /* ---- San Croce Filter ---- */
+                            filter(sanCroce);
                         }
                     });
                     sm.addEventListener("click", function () {
                         if(sm.style.color === "lightgray"){
                             sm.style.color = "white";
+
+                            /* ---- Remove San Marco Filter ---- */
+                            filter(sanMarco);
                         }
                         else{
                             sm.style.color = "lightgray";
+
+                            /* ---- San Marco Filter ---- */
+                            filter(sanMarco);
                         }
                     });
                     sp.addEventListener("click", function () {
                         if(sp.style.color === "lightgray") {
                             sp.style.color = "white";
+
+                            /* ---- Remove San Polo Filter ---- */
+                            filterCancel(sanPolo);
                         }
                         else{
                             sp.style.color = "lightgray";
+
+                            /* ---- San Polo Filter ---- */
+                            filter(sanPolo);
                         }
                     });
 
                     rampPer.addEventListener("click", function () {
                         if(rampPer.style.color === "lightgray"){
                             rampPer.style.color = "white";
+
+                            /* ---- Remove Permanent Ramp Filter ---- */
+                            filterCancel(ramp_per);
                         }
                         else{
                             rampPer.style.color = "lightgray";
+
+                            /* ---- Permanent Ramp Filter ---- */
+                            filter(ramp_per);
                         }
                     });
                     rampTemp.addEventListener("click", function () {
                         if(rampTemp.style.color === "lightgray") {
                             rampTemp.style.color = "white";
+
+                            /* ---- Remove Temporary Ramp Filter ---- */
+                            filterCancel(ramp_temp);
                         }
                         else{
                             rampTemp.style.color = "lightgray";
+
+                            /* ---- Temporary Ramp Filter ---- */
+                            filter(ramp_temp);
+                        }
+                    });
+                    rampNone.addEventListener("click", function () {
+                        if(rampNone.style.color === "lightgray") {
+                            rampNone.style.color = "white";
+
+                            /* ---- Remove None Ramp Filter ---- */
+                            filterCancel(ramp_none);
+                        }
+                        else{
+                            rampNone.style.color = "lightgray";
+
+                            /* ---- None Ramp Filter ---- */
+                            filter(ramp_none);
                         }
                     });
 
                     railBoth.addEventListener("click", function () {
                         if(railBoth.style.color === "lightgray"){
                             railBoth.style.color = "white";
+
+                            /* ---- Remove Both Rail Filter ---- */
+                            filterCancel(rail_both);
                         }
                         else{
                             railBoth.style.color = "lightgray";
+
+                            /* ---- Both Rail Filter ---- */
+                            filter(rail_both);
                         }
                     });
                     railOne.addEventListener("click", function () {
                         if(railOne.style.color === "lightgray") {
                             railOne.style.color = "white";
+
+                            /* ---- Remove One Rail Filter ---- */
+                            filterCancel(rail_one);
                         }
                         else{
                             railOne.style.color = "lightgray";
+
+                            /* ---- One Rail Filter ---- */
+                            filter(rail_one);
+                        }
+                    });
+                    railNone.addEventListener("click", function () {
+                        if(railNone.style.color === "lightgray") {
+                            railNone.style.color = "white";
+
+                            /* ---- Remove None Rail Filter ---- */
+                            filterCancel(rail_none);
+                        }
+                        else{
+                            railNone.style.color = "lightgray";
+
+                            /* ---- None Rail Filter ---- */
+                            filter(rail_none);
                         }
                     });
 
-                    slip.addEventListener("click", function () {
-                        if(slip.style.color === "lightgray"){
-                            slip.style.color = "white";
+                    slipInstall.addEventListener("click", function () {
+                        if(slipInstall.style.color === "lightgray"){
+                            slipInstall.style.color = "white";
+
+                            /* ---- Remove Install Slip Filter ---- */
+                            filterCancel(slip_install);
                         }
                         else{
-                            slip.style.color = "lightgray";
+                            slipInstall.style.color = "lightgray";
+
+                            /* ---- Install Slip Filter ---- */
+                            filter(slip_install);
                         }
                     });
-                    open.addEventListener("click", function () {
-                        if(open.style.color === "lightgray") {
-                            open.style.color = "white";
+                    slipNone.addEventListener("click", function () {
+                        if(slipNone.style.color === "lightgray"){
+                            slipNone.style.color = "white";
+
+                            /* ---- Remove Install Slip Filter ---- */
+                            filterCancel(slip_none);
                         }
                         else{
-                            open.style.color = "lightgray";
+                            slipNone.style.color = "lightgray";
+
+                            /* ---- Install Slip Filter ---- */
+                            filter(slip_none);
                         }
                     });
-                    tact.addEventListener("click", function () {
-                        if(tact.style.color === "lightgray") {
-                            tact.style.color = "white";
+
+                    openBoth.addEventListener("click", function () {
+                        if(openBoth.style.color === "lightgray") {
+                            openBoth.style.color = "white";
+
+                            /* ---- Remove Both Opening Filter ---- */
+                            filterCancel(open_both);
                         }
                         else{
-                            tact.style.color = "lightgray";
+                            openBoth.style.color = "lightgray";
+
+                            /* ---- Both Opening Filter ---- */
+                            filter(open_both);
                         }
                     });
+                    openOne.addEventListener("click", function () {
+                        if(openOne.style.color === "lightgray") {
+                            openOne.style.color = "white";
+
+                            /* ---- Remove One Opening Filter ---- */
+                            filterCancel(open_one);
+                        }
+                        else{
+                            openOne.style.color = "lightgray";
+
+                            /* ---- One Opening Filter ---- */
+                            filter(open_one);
+                        }
+                    });
+                    openNone.addEventListener("click", function () {
+                        if(openNone.style.color === "lightgray") {
+                            openNone.style.color = "white";
+
+                            /* ---- Remove None Opening Filter ---- */
+                            filterCancel(open_none);
+                        }
+                        else{
+                            openNone.style.color = "lightgray";
+
+                            /* ---- None Opening Filter ---- */
+                            filter(open_none);
+                        }
+                    });
+
+                    tactInstall.addEventListener("click", function () {
+                        if(tactInstall.style.color === "lightgray") {
+                            tactInstall.style.color = "white";
+
+                            /* ---- Remove Installed Tactile Filter ---- */
+                            filterCancel(tact_install);
+                        }
+                        else{
+                            tactInstall.style.color = "lightgray";
+
+                            /* ---- Installed Tactile Filter ---- */
+                            filter(tact_install);
+                        }
+                    });
+                    tactNone.addEventListener("click", function () {
+                        if(tactNone.style.color === "lightgray") {
+                            tactNone.style.color = "white";
+
+                            /* ---- Remove None Tactile Filter ---- */
+                            filterCancel(tact_none);
+                        }
+                        else{
+                            tactNone.style.color = "lightgray";
+
+                            /* ---- None Tactile Filter ---- */
+                            filter(tact_none);
+                        }
+                    });
+
                     priv.addEventListener("click", function () {
                         if(priv.style.color === "lightgray") {
                             priv.style.color = "white";
+
+                            /* ---- Remove Private Filter ---- */
+                            filterCancel(priv_bridge);
                         }
                         else{
                             priv.style.color = "lightgray";
+
+                            /* ---- Private Filter ---- */
+                            filter(priv_bridge);
                         }
                     });
                 </script>
@@ -296,7 +565,7 @@
                </div>
                <table id="mapDes" class="mapDescTable">
                    <tr>
-                       <th width="100%">
+                       <th width="100%" valign="top">
                            <div id="mapid"></div>
                        </th>
                        <th id="descBoxContainer">
@@ -350,7 +619,7 @@
         var mymap = L.map('mapid').setView([45.437309, 12.335072], 14);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
+            maxZoom: 19,
             subdomains: ['a','b','c','d'],
             id: 'mapbox.streets',
             accessToken: 'pk.eyJ1IjoidmVuaWNld2l0aG91dG9ic3RhY2xlcyIsImEiOiJjam55azU0MHgxNTR4M3BrYjh2NzV1d3lyIn0.6EVMzVUveIUc-0BJfMijJw'
