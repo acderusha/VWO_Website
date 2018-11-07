@@ -20,6 +20,7 @@
         <div class="header" style="left: 0px">
             <div id="homeBtn" class="headerBtn headerLeft"><b>HOME</b></div>
             <div id="bridgeBtn" class="headerBtn headerLeft"><b><u>BRIDGES</u></b></div>
+            <div id="projectLogogit sa" class="headerBtn headerRight"><b>VENICE WITHOUT OBSTACLES</b></div>
         </div>
     </div>
 
@@ -27,7 +28,7 @@
        <tr>
            <th class="filterSection" valign="top">
             <div id="filterBox" class="filterBox">
-                <div style="color: lightgray; font-size: 20px;">
+                <div style="color: lightgray; font-size: 20px; border-bottom: 1px lightgray solid; padding-bottom: 3px">
                     Filters
                 </div>
                 <div id="islands" class="filterBoxItemClick">
@@ -620,7 +621,7 @@
         var mymap = L.map('mapid').setView([45.437309, 12.335072], 14);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 19,
+            maxZoom: 18,
             subdomains: ['a','b','c','d'],
             id: 'mapbox.streets',
             accessToken: 'pk.eyJ1IjoidmVuaWNld2l0aG91dG9ic3RhY2xlcyIsImEiOiJjam55azU0MHgxNTR4M3BrYjh2NzV1d3lyIn0.6EVMzVUveIUc-0BJfMijJw'
