@@ -24,6 +24,8 @@
 }
 
 #mic:hover{
+    cursor: pointer;
+
     color: dodgerblue;
     font-size: 27px;
 }
@@ -38,8 +40,9 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    width: 100%;
+    width: calc(100% - 20px);
 
+    margin: 10px 10px 0px 10px;
     padding: 0px 10px 0px 40px;
 
     border: 1px solid #ddd;
@@ -56,6 +59,7 @@
     box-sizing: border-box;
 
     border: none;
+    outline: none;
 }
 
 .header {
@@ -131,80 +135,80 @@
 }
 
 .info {
-padding: 6px 8px;
-font: 14px/16px Arial, Helvetica, sans-serif;
-background: white;
-background: rgba(255,255,255,0.8);
-box-shadow: 0 0 15px rgba(0,0,0,0.2);
-border-radius: 5px;
-text-align: left;
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    text-align: left;
 }
 .info h4 {
-margin: 0 0 5px;
-color: #777;
-text-align: center;
+    margin: 0 0 5px;
+    color: #777;
+    text-align: center;
 }
 
 .mapDescTable {
-width: 100%;
+    width: 100%;
 
-padding-right: 10px;
-margin-right: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
 }
 
 .descBox {
-background: black;
-width: 300px;
-min-height: 77vh;
+    background: black;
+    width: 300px;
+    min-height: 77vh;
 
-border-radius: 10px;
-border-style: solid;
-border-color: #ddd;
-border-width: 1px;
-padding: 10px 10px 10px 10px;
-margin: 9px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px;
+    padding: 10px 10px 10px 10px;
+    margin: 9px;
 
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 1px rgba(0, 0, 0, 0.1);
 
-display: none;
-float: right;
+    display: none;
+    float: right;
 }
 
 .closeBtn {
-color: lightgray;
-background-color: black;
-float: right;
-border: none;
-font-size: 20px
+    color: lightgray;
+    background-color: black;
+    float: right;
+    border: none;
+    font-size: 20px
 }
 
 .closeBtn:hover{
-cursor: pointer;
-color: white;
+    cursor: pointer;
+    color: white;
 }
 
 .descBoxItemMain {
-width: 90%;
-float: left;
+    width: 90%;
+    float: left;
 
-text-align: left;
-color: lightgray;
-font-size: 16px;
-margin: 10px 10px 3px 10px;
+    text-align: left;
+    color: lightgray;
+    font-size: 16px;
+    margin: 10px 10px 3px 10px;
 
-border-bottom: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
 }
 
 .descBoxItem {
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
 
-text-align: left;
-color: lightgray;
-font-size: 16px;
-margin: 3px 10px 3px 10px;
+    text-align: left;
+    color: lightgray;
+    font-size: 16px;
+    margin: 3px 10px 3px 10px;
 
-float: left;
+    float: left;
 }
