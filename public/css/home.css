@@ -13,8 +13,24 @@
     border-color: darkgrey;
 }
 
-.searchBar {
+#mic {
+    font-size: 26px;
+    float: right;
+
+    margin-top: 7px;
+    margin-right: 10px;
+
+    color: blue;
+}
+
+#mic:hover{
+    color: dodgerblue;
+    font-size: 27px;
+}
+
+.searchBarContainer {
     font-size: 18px;
+    height: 40px;
 
     background: url(images/search_icon.png) no-repeat 10px 10px;
     background-size: 20px;
@@ -24,10 +40,22 @@
     box-sizing: border-box;
     width: 100%;
 
-    padding: 10px 10px 8px 40px;
+    padding: 0px 10px 0px 40px;
 
     border: 1px solid #ddd;
     border-radius: 20px;
+}
+
+.searchBar {
+    font-size: 18px;
+    height: 100%;
+    width: calc(100% - 30px);
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border: none;
 }
 
 .header {
@@ -39,7 +67,7 @@
 
     top: 0;
     background-color: black;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .headerBtn {
