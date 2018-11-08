@@ -482,7 +482,9 @@
         }
         mymap.on('click', onMapClick);*/
 
-        initializeMapElements();
+        var bridgeLayer = L.geoJson(bridges, {style: style});
+
+        initializeMapElements(bridgeLayer);
         addMapElements(mymap);
     </script>
 

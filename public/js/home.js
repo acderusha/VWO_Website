@@ -110,8 +110,8 @@ function style(feature) {
     };
 }
 
-function initializeMapElements(){
-    var bridgeLayer = L.geoJson(bridges, {style: style});
+
+function initializeMapElements(birdgeLayer){
     bridgeLayer.addTo(mymap);
 }
 
