@@ -99,22 +99,25 @@ var bridges = [{
 }];
 
 
+function style(feature) {
+    return {
+        fillColor: "#ff7800",
+        weight: 2,
+        opacity: 1,
+        color: 'purple',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
+function initializeMapElements(){
+    var bridgeLayer = L.geoJson(bridges, {style: style});
+    bridgeLayer.addTo(mymap);
+}
+
+/* ---------------------------- Map Interaction Functions --------------------------- */
 function addMapElements() {
-    /* ---------------------------- Map Interaction Functions --------------------------- */
-
     /* ------ Bridge Highlight ----------- */
-
-    function style(feature) {
-        return {
-            fillColor: "#ff7800",
-            weight: 2,
-            opacity: 1,
-            color: 'purple',
-            dashArray: '3',
-            fillOpacity: 0.7
-        };
-    }
-    L.geoJson(bridges, {style: style}).addTo(mymap);
 
     function highlightFeature(e) {
         var layer = e.target;
@@ -134,7 +137,7 @@ function addMapElements() {
     }
 
     function resetHighlight(e) {
-        bridgeLayer.resetStyle(e.target);
+        geojson.resetStyle(e.target);
         info.update();
     }
 
@@ -175,7 +178,7 @@ function addMapElements() {
         });
     }
 
-    L.geoJson(bridges, {
+    geojson = L.geoJson(bridges, {
         style: style,
         onEachFeature: onEachFeature
     }).addTo(mymap);
