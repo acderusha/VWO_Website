@@ -397,35 +397,42 @@ function addDescription(props){
 function filterLayer() {
     mymap.removeLayer(bridgeLayer);
 
+    console.log("rampPerFilter: " + rampPerFilter);
+    console.log("rampTempFilter: " + rampTempFilter);
+    console.log("rampNoneFilter: " + rampNoneFilter);
+    console.log("railBothFilter: " + railBothFilter);
+    console.log("railOneFilter: " + railOneFilter);
+    console.log("railNoneFilter: " + railNoneFilter);
+
     bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature,
             filter: function(feature, layer) {
 
-                if (rampPerVar) {
+                if (rampPerFilter) {
                     if (feature.properties.ramp === "permanent"){
                         return true;
                     }
                 }
-                if (rampTempVar) {
+                if (rampTempFilter) {
                     if (feature.properties.ramp === "temporary"){
                         return true;
                     }
                 }
-                if (rampNoneVar) {
+                if (rampNoneFilter) {
                     if (feature.properties.ramp === "none"){
                         return true;
                     }
                 }
-                if (railBothVar) {
+                if (railBothFilter) {
                     if (feature.properties.railing === "both"){
                         return true;
                     }
                 }
-                if (railOneVar) {
+                if (railOneFilter) {
                     if (feature.properties.railing === "one"){
                         return true;
                     }
                 }
-                if (railNoneVar) {
+                if (railNoneFilter) {
                     if (feature.properties.railing === "none"){
                         return true;
                     }

@@ -199,26 +199,26 @@
 
                     /* -------------------------- Filter Event Listeners ---------------------- */
 
-                    var rampPerVar = true;
-                    var rampTempVar = true;
-                    var rampNoneVar = true;
-                    var railBothVar = true;
-                    var railOneVar = true;
-                    var railNoneVar = true;
+                    var rampPerFilter = true;
+                    var rampTempFilter = true;
+                    var rampNoneFilter = true;
+                    var railBothFilter = true;
+                    var railOneFilter = true;
+                    var railNoneFilter = true;
 
                     rampPer.addEventListener("click", function () {
                         if(rampPer.style.color === "lightgray"){
                             rampPer.style.color = "white";
 
                             /* ---- Remove Permanent Ramp Filter ---- */
-                            rampPerVar = true;
+                            rampPerFilter = true;
                             filterLayer();
                         }
                         else{
                             rampPer.style.color = "lightgray";
 
                             /* ---- Permanent Ramp Filter ---- */
-                            rampPerVar = false;
+                            rampPerFilter = false;
                             filterLayer();
                         }
                     });
@@ -227,14 +227,14 @@
                             rampTemp.style.color = "white";
 
                             /* ---- Remove Temporary Ramp Filter ---- */
-                            rampTempVar = true;
+                            rampTempFilter = true;
                             filterLayer();
                         }
                         else{
                             rampTemp.style.color = "lightgray";
 
                             /* ---- Temporary Ramp Filter ---- */
-                            rampTempVar = false;
+                            rampTempFilter = false;
                             filterLayer();
                         }
                     });
@@ -243,7 +243,7 @@
                             rampNone.style.color = "white";
 
                             /* ---- Remove None Ramp Filter ---- */
-                            rampNoneVar = true;
+                            rampNoneFilter = true;
                             filterLayer();
                         }
                         else{
@@ -260,14 +260,14 @@
                             railBoth.style.color = "white";
 
                             /* ---- Remove Both Rail Filter ---- */
-                            railBothVar = true;
+                            railBothFilter = true;
                             filterLayer();
                         }
                         else{
                             railBoth.style.color = "lightgray";
 
                             /* ---- Both Rail Filter ---- */
-                            railBothVar = false;
+                            railBothFilter = false;
                             filterLayer();
                         }
                     });
@@ -276,14 +276,14 @@
                             railOne.style.color = "white";
 
                             /* ---- Remove One Rail Filter ---- */
-                            railOneVar = true;
+                            railOneFilter = true;
                             filterLayer();
                         }
                         else{
                             railOne.style.color = "lightgray";
 
                             /* ---- One Rail Filter ---- */
-                            railOneVar = false;
+                            railOneFilter = false;
                             filterLayer();
                         }
                     });
@@ -292,14 +292,14 @@
                             railNone.style.color = "white";
 
                             /* ---- Remove None Rail Filter ---- */
-                            railNoneVar = true;
+                            railNoneFilter = true;
                             filterLayer();
                         }
                         else{
                             railNone.style.color = "lightgray";
 
                             /* ---- None Rail Filter ---- */
-                            railNoneVar = false;
+                            railNoneFilter = false;
                             filterLayer();
                         }
                     });
