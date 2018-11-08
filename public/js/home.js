@@ -7,7 +7,7 @@ var bridges = [{
         "ramp": "permanent",
         "railing": "none",
         "slip_stair": "yes",
-        "opening": "none",
+        "opening": "both",
         "tactile": "none",
         "private": "yes"
     },
@@ -37,9 +37,9 @@ var bridges = [{
         "district1": "Cannaregio",
         "district2": "Castello",
         "ramp": "none",
-        "railing": "both_side",
+        "railing": "both",
         "slip_stair": "none",
-        "opening": "both_side",
+        "opening": "none",
         "tactile": "yes",
         "private": "no"
     },
@@ -67,9 +67,9 @@ var bridges = [{
         "district1": "Castello",
         "district2": "null",
         "ramp": "temporary",
-        "railing": "one_side",
+        "railing": "one",
         "slip_stair": "none",
-        "opening": "one_side",
+        "opening": "one",
         "tactile": "yes",
         "private": "no"
     },
@@ -317,13 +317,13 @@ function addDescription(props){
         accomDiv.appendChild(rampLabel);
     }
 
-    if(railing === "one_side"){
+    if(railing === "one"){
         let railingLabel = document.createElement("label");
         railingLabel.textContent = "Railing: One Side";
         railingLabel.className = "descBoxItem";
         accomDiv.appendChild(railingLabel);
     }
-    else if(railing === "both_side"){
+    else if(railing === "both"){
         let railingLabel = document.createElement("label");
         railingLabel.textContent = "Railing: Both Sides";
         railingLabel.className = "descBoxItem";
@@ -332,19 +332,25 @@ function addDescription(props){
 
     if(slip != "none"){
         let slipLabel = document.createElement("label");
-        slipLabel.textContent = "Slip Stair Edging";
+        slipLabel.textContent = "Slip Stair Edging: Installed";
         slipLabel.className = "descBoxItem";
         accomDiv.appendChild(slipLabel);
     }
+    else{
+        let slipLabelNone = document.createElement("label");
+        slipLabelNone.textContent = "Slip Stair Edging: None";
+        slipLabelNone.className = "descBoxItem";
+        cautionDiv.appendChild(slipLabelNone);
+    }
 
-    if(open === "one_side"){
+    if(open === "one"){
         let openLabel = document.createElement("label");
         openLabel.textContent = "Canal Opening: One Side";
         openLabel.className = "descBoxItem";
         cautionDiv.appendChild(openLabel);
     }
 
-    else if(open === "both_side"){
+    else if(open === "both"){
         let openLabel = document.createElement("label");
         openLabel.textContent = "Canal Opening: Both Sides";
         openLabel.className = "descBoxItem";
@@ -356,6 +362,20 @@ function addDescription(props){
         tactLabel.textContent = "Tactile Pavement";
         tactLabel.className = "descBoxItem";
         accomDiv.appendChild(tactLabel);
+    }
+
+    if(open != "none" && tact === "none"){
+        let tactopen = document.createElement("label");
+        tactopen.textContent = "Tactile Pavement near Canal Opening: None";
+        tactopen.className = "descBoxItem";
+        cautionDiv.appendChild(tactopen);
+    }
+
+    if(open != "none" && tact != "none"){
+        let tactopen = document.createElement("label");
+        tactopen.textContent = "Tactile Pavement near Canal Opening: Installed";
+        tactopen.className = "descBoxItem";
+        accomDiv.appendChild(tactopen);
     }
 
     if(priv != "no"){
@@ -373,118 +393,6 @@ function addDescription(props){
 }
 
 /* ------------------- Filter Functions ------------------ */
-
-var ramp_per = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.ramp === "permanent"){
-            return true
-        }
-    }
-});
-var ramp_temp = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.ramp === "temporary"){
-            return true
-        }
-    }
-});
-var ramp_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.ramp === "none"){
-            return true
-        }
-    }
-});
-
-var rail_both = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.railing === "both_side"){
-            return true
-        }
-    }
-});
-var rail_one = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.railing === "one_side"){
-            return true
-        }
-    }
-});
-var rail_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.railing === "none"){
-            return true
-        }
-    }
-});
-
-var slip_install = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.slip_stair === "yes"){
-            return true
-        }
-    }
-});
-var slip_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.slip_stair === "none"){
-            return true
-        }
-    }
-});
-
-var open_both = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.opening === "both_side"){
-            return true
-        }
-    }
-});
-var open_one = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.opening === "one_side"){
-            return true
-        }
-    }
-});
-var open_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.opening === "none"){
-            return true
-        }
-    }
-});
-
-var tact_install = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.tactile === "yes"){
-            return true
-        }
-    }
-});
-var tact_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.tactile === "none"){
-            return true
-        }
-    }
-});
-
-var priv_bridge = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.private === "yes"){
-            return true
-        }
-    }
-});
-
-function filter(aFilter) {
-    aFilter.addTo(mymap);
-}
-
-function filterCancel(aFilter) {
-    aFilter.remove();
-}
 
 function filterLayer() {
     mymap.removeLayer(bridgeLayer);
@@ -504,6 +412,21 @@ function filterLayer() {
                 }
                 if (rampNoneVar) {
                     if (feature.properties.ramp === "none"){
+                        return true;
+                    }
+                }
+                if (railBothVar) {
+                    if (feature.properties.railing === "both"){
+                        return true;
+                    }
+                }
+                if (railOneVar) {
+                    if (feature.properties.railing === "one"){
+                        return true;
+                    }
+                }
+                if (railNoneVar) {
+                    if (feature.properties.railing === "none"){
                         return true;
                     }
                 }
