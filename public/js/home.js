@@ -397,12 +397,12 @@ function addDescription(props){
 function filterLayer() {
     mymap.removeLayer(bridgeLayer);
 
-    console.log("rampPerFilter: " + rampPerFilter);
+    /*console.log("rampPerFilter: " + rampPerFilter);
     console.log("rampTempFilter: " + rampTempFilter);
     console.log("rampNoneFilter: " + rampNoneFilter);
     console.log("railBothFilter: " + railBothFilter);
     console.log("railOneFilter: " + railOneFilter);
-    console.log("railNoneFilter: " + railNoneFilter);
+    console.log("railNoneFilter: " + railNoneFilter);*/
 
     bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature,
             filter: function(feature, layer) {
@@ -437,6 +437,47 @@ function filterLayer() {
                         return true;
                     }
                 }
+                if (slipInstallFilter) {
+                    if (feature.properties.slip_stair === "yes"){
+                        return true;
+                    }
+                }
+                if (slipNoneFilter) {
+                    if (feature.properties.slip_stair === "none"){
+                        return true;
+                    }
+                }
+                if (openBothFilter) {
+                    if (feature.properties.opening === "both"){
+                        return true;
+                    }
+                }
+                if (openOneFilter) {
+                    if (feature.properties.opening === "one"){
+                        return true;
+                    }
+                }
+                if (openNoneFilter) {
+                    if (feature.properties.opening === "none"){
+                        return true;
+                    }
+                }
+                if (tactInstallFilter) {
+                    if (feature.properties.tactile === "yes"){
+                        return true;
+                    }
+                }
+                if (tactNoneFilter) {
+                    if (feature.properties.tactile === "none"){
+                        return true;
+                    }
+                }
+                if (privFilter) {
+                    if (feature.properties.private === "yes"){
+                        return true;
+                    }
+                }
+
         }
     });
 

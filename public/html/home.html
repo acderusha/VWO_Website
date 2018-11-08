@@ -205,6 +205,14 @@
                     var railBothFilter = true;
                     var railOneFilter = true;
                     var railNoneFilter = true;
+                    var slipInstallFilter = true;
+                    var slipNoneFilter = true;
+                    var openBothFilter = true;
+                    var openOneFilter = true;
+                    var openNoneFilter = true;
+                    var tactInstallFilter = true;
+                    var tactNoneFilter = true;
+                    var privFilter = true;
 
                     rampPer.addEventListener("click", function () {
                         if(rampPer.style.color === "lightgray"){
@@ -250,7 +258,7 @@
                             rampNone.style.color = "lightgray";
 
                             /* ---- None Ramp Filter ---- */
-                            rampNoneVar = false;
+                            rampNoneFilter = false;
                             filterLayer();
                         }
                     });
@@ -309,13 +317,15 @@
                             slipInstall.style.color = "white";
 
                             /* ---- Remove Install Slip Filter ---- */
-                            filterCancel(slip_install);
+                            slipInstallFilter = true;
+                            filterLayer();
                         }
                         else{
                             slipInstall.style.color = "lightgray";
 
                             /* ---- Install Slip Filter ---- */
-                            filter(slip_install);
+                            slipInstallFilter = false;
+                            filterLayer();
                         }
                     });
                     slipNone.addEventListener("click", function () {
@@ -323,13 +333,15 @@
                             slipNone.style.color = "white";
 
                             /* ---- Remove Install Slip Filter ---- */
-                            filterCancel(slip_none);
+                            slipNoneFilter = true;
+                            filterLayer();
                         }
                         else{
                             slipNone.style.color = "lightgray";
 
                             /* ---- Install Slip Filter ---- */
-                            filter(slip_none);
+                            slipNoneFilter = false;
+                            filterLayer();
                         }
                     });
 
@@ -338,13 +350,15 @@
                             openBoth.style.color = "white";
 
                             /* ---- Remove Both Opening Filter ---- */
-                            filterCancel(open_both);
+                            openBothFilter = true;
+                            filterLayer();
                         }
                         else{
                             openBoth.style.color = "lightgray";
 
                             /* ---- Both Opening Filter ---- */
-                            filter(open_both);
+                            openBothFilter = false;
+                            filterLayer();
                         }
                     });
                     openOne.addEventListener("click", function () {
@@ -352,13 +366,15 @@
                             openOne.style.color = "white";
 
                             /* ---- Remove One Opening Filter ---- */
-                            filterCancel(open_one);
+                            openOneFilter = true;
+                            filterLayer();
                         }
                         else{
                             openOne.style.color = "lightgray";
 
                             /* ---- One Opening Filter ---- */
-                            filter(open_one);
+                            openOneFilter = false;
+                            filterLayer();
                         }
                     });
                     openNone.addEventListener("click", function () {
@@ -366,13 +382,15 @@
                             openNone.style.color = "white";
 
                             /* ---- Remove None Opening Filter ---- */
-                            filterCancel(open_none);
+                            openNoneFilter = true;
+                            filterLayer();
                         }
                         else{
                             openNone.style.color = "lightgray";
 
                             /* ---- None Opening Filter ---- */
-                            filter(open_none);
+                            openNoneFilter = false;
+                            filterLayer();
                         }
                     });
 
@@ -381,13 +399,15 @@
                             tactInstall.style.color = "white";
 
                             /* ---- Remove Installed Tactile Filter ---- */
-                            filterCancel(tact_install);
+                            tactInstallFilter = true;
+                            filterLayer();
                         }
                         else{
                             tactInstall.style.color = "lightgray";
 
                             /* ---- Installed Tactile Filter ---- */
-                            filter(tact_install);
+                            tactInstallFilter = false;
+                            filterLayer();
                         }
                     });
                     tactNone.addEventListener("click", function () {
@@ -395,13 +415,15 @@
                             tactNone.style.color = "white";
 
                             /* ---- Remove None Tactile Filter ---- */
-                            filterCancel(tact_none);
+                            tactNoneFilter = true;
+                            filterLayer();
                         }
                         else{
                             tactNone.style.color = "lightgray";
 
                             /* ---- None Tactile Filter ---- */
-                            filter(tact_none);
+                            tactNoneFilter = false;
+                            filterLayer();
                         }
                     });
 
@@ -410,13 +432,15 @@
                             priv.style.color = "white";
 
                             /* ---- Remove Private Filter ---- */
-                            filterCancel(priv_bridge);
+                            privFilter = true;
+                            filterLayer();
                         }
                         else{
                             priv.style.color = "lightgray";
 
                             /* ---- Private Filter ---- */
-                            filter(priv_bridge);
+                            privFilter = false;
+                            filterLayer();
                         }
                     });
                 </script>
