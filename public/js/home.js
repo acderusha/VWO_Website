@@ -105,36 +105,15 @@ function addMapElements() {
     /* ------ Bridge Highlight ----------- */
 
     function style(feature) {
-        if(feature.properties.district2 != 'null'){
-            return {
-                fillColor: "#ff7800",
-                weight: 2,
-                opacity: 1,
-                color: 'purple',
-                dashArray: '3',
-                fillOpacity: 0.7
-            };
-        } else if(feature.properties.district1 === 'Cannaregio'){
-            return {
-                fillColor: "yellow",
-                weight: 2,
-                opacity: 1,
-                color: 'purple',
-                dashArray: '3',
-                fillOpacity: 0.7
-            };
-        } else if(feature.properties.district1 === 'Castello') {
-            return {
-                fillColor: "red",
-                weight: 2,
-                opacity: 1,
-                color: 'purple',
-                dashArray: '3',
-                fillOpacity: 0.7
-            };
-        }
+        return {
+            fillColor: "#ff7800",
+            weight: 2,
+            opacity: 1,
+            color: 'purple',
+            dashArray: '3',
+            fillOpacity: 0.7
+        };
     }
-
     L.geoJson(bridges, {style: style}).addTo(mymap);
 
     function highlightFeature(e) {
@@ -155,7 +134,7 @@ function addMapElements() {
     }
 
     function resetHighlight(e) {
-        geojson.resetStyle(e.target);
+        bridgeLayer.resetStyle(e.target);
         info.update();
     }
 
@@ -196,7 +175,7 @@ function addMapElements() {
         });
     }
 
-    geojson = L.geoJson(bridges, {
+    L.geoJson(bridges, {
         style: style,
         onEachFeature: onEachFeature
     }).addTo(mymap);
@@ -400,56 +379,6 @@ function addDescription(props){
 }
 
 /* ------------------- Filter Functions ------------------ */
-
-var cannaragio = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.district1 === "Cannaregio" || feature.properties.district2 === "Cannaregio"){
-            return true
-        }
-    }
-});
-var castello = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.district1 === "Castello" || feature.properties.district2 === "Castello"){
-            return true
-        }
-    }
-});
-var sanMarco = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.district1 === "San Marco" || feature.properties.district2 === "San Marco"){
-            return true
-        }
-    }
-});
-var sanPolo = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.district1 === "San Polo" || feature.properties.district2 === "San Polo"){
-            return true
-        }
-    }
-});
-var sanCroce = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.district1 === "San Croce" || feature.properties.district2 === "San Croce"){
-            return true
-        }
-    }
-});
-var dorsodouro = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.district1 === "Dorsodouro" || feature.properties.district2 === "Dorsodouro"){
-            return true
-        }
-    }
-});
-var giudecca = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.district1 === "Giudecca" || feature.properties.district2 === "Giudecca"){
-            return true
-        }
-    }
-});
 
 var ramp_per = L.geoJSON(bridges, {
     filter: function(feature, layer) {

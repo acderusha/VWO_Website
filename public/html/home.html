@@ -31,30 +31,6 @@
                 <div style="color: lightgray; font-size: 20px; border-bottom: 1px lightgray solid; padding-bottom: 3px">
                     Filters
                 </div>
-                <div id="islands" class="filterBoxItemClick">
-                    &#9656 Islands
-                </div>
-                <div id="Cannaregio" class="filterBoxItem" style="display: none; margin-left: 30px">
-                    Cannaregio
-                </div>
-                <div id="Castello" class="filterBoxItem" style="display: none; margin-left: 30px">
-                    Castello
-                </div>
-                <div id="Dorsodouro" class="filterBoxItem" style="display: none; margin-left: 30px">
-                    Dorsodouro
-                </div>
-                <div id="Giudecca" class="filterBoxItem" style="display: none; margin-left: 30px">
-                    Giudecca
-                </div>
-                <div id="San Croce" class="filterBoxItem" style="display: none; margin-left: 30px">
-                    San Croce
-                </div>
-                <div id="San Marco" class="filterBoxItem" style="display: none; margin-left: 30px">
-                    San Marco
-                </div>
-                <div id="San Polo" class="filterBoxItem" style="display: none; margin-left: 30px">
-                    San Polo
-                </div>
                 <div id="ramp" class="filterBoxItemClick">
                     &#9656 Ramps
                 </div>
@@ -114,15 +90,6 @@
                 </div>
 
                 <script>
-                    var islands = document.getElementById("islands");
-                    var can = document.getElementById("Cannaregio");
-                    var cast = document.getElementById("Castello");
-                    var dors = document.getElementById("Dorsodouro");
-                    var giu = document.getElementById("Giudecca");
-                    var sc = document.getElementById("San Croce");
-                    var sm = document.getElementById("San Marco");
-                    var sp = document.getElementById("San Polo");
-
                     var ramp = document.getElementById("ramp");
                     var rampPer = document.getElementById("perm");
                     var rampTemp = document.getElementById("temp");
@@ -149,32 +116,6 @@
                     var priv = document.getElementById("private");
 
                     /* -------------------------- Display Event Listeners ---------------------- */
-                    islands.addEventListener("click", function () {
-                        //console.log(can.style.display);
-                        if(can.style.display === "none"){
-                            can.style.display = "block";
-                            cast.style.display = "block";
-                            dors.style.display = "block";
-                            giu.style.display = "block";
-                            sc.style.display = "block";
-                            sm.style.display = "block";
-                            sp.style.display = "block";
-
-                            islands.innerHTML = "&#9662 Islands";
-                        }
-                        else{
-                            can.style.display = "none";
-                            cast.style.display = "none";
-                            dors.style.display = "none";
-                            giu.style.display = "none";
-                            sc.style.display = "none";
-                            sm.style.display = "none";
-                            sp.style.display = "none";
-
-                            islands.innerHTML = "&#9656 Islands";
-                        }
-                    });
-
                     ramp.addEventListener("click", function () {
                         if(rampPer.style.display === "none"){
                             rampPer.style.display = "block";
@@ -257,104 +198,6 @@
                     });
 
                     /* -------------------------- Filter Event Listeners ---------------------- */
-                    can.addEventListener("click", function () {
-                        if(can.style.color === "lightgray"){
-                            can.style.color = "white";
-
-                            /* ---- Remove Canaregio Filter ---- */
-                            filterCancel(cannaragio);
-                        }
-                        else{
-                            can.style.color = "lightgray";
-
-                            /* ---- Canaregio Filter ---- */
-                            filter(cannaragio);
-                        }
-                    });
-                    cast.addEventListener("click", function () {
-                        if(cast.style.color === "lightgray"){
-                            cast.style.color = "white";
-
-                            /* ---- Remove Castello Filter ---- */
-                            filterCancel(castello);
-                        }
-                        else{
-                            cast.style.color = "lightgray";
-
-                            /* ---- Castello Filter ---- */
-                            filter(castello);
-                        }
-                    });
-                    dors.addEventListener("click", function () {
-                        if(dors.style.color === "lightgray"){
-                            dors.style.color = "white";
-
-                            /* ---- Remove Dorsodouro Filter ---- */
-                            filterCancel(dorsodouro);
-                        }
-                        else{
-                            dors.style.color = "lightgray";
-
-                            /* ---- Dorsodouro Filter ---- */
-                            filter(dorsodouro);
-                        }
-                    });
-                    giu.addEventListener("click", function () {
-                        if(giu.style.color === "lightgray"){
-                            giu.style.color = "white";
-
-                            /* ---- Remove Giudecca Filter ---- */
-                            filterCancel(giudecca);
-                        }
-                        else{
-                            giu.style.color = "lightgray";
-
-                            /* ---- Giudecca Filter ---- */
-                            filter(giudecca);
-                        }
-                    });
-                    sc.addEventListener("click", function () {
-                        if(sc.style.color === "lightgray"){
-                            sc.style.color = "white";
-
-                            /* ---- Remove San Croce Filter ---- */
-                            filterCancel(sanCroce);
-                        }
-                        else{
-                            sc.style.color = "lightgray";
-
-                            /* ---- San Croce Filter ---- */
-                            filter(sanCroce);
-                        }
-                    });
-                    sm.addEventListener("click", function () {
-                        if(sm.style.color === "lightgray"){
-                            sm.style.color = "white";
-
-                            /* ---- Remove San Marco Filter ---- */
-                            filter(sanMarco);
-                        }
-                        else{
-                            sm.style.color = "lightgray";
-
-                            /* ---- San Marco Filter ---- */
-                            filter(sanMarco);
-                        }
-                    });
-                    sp.addEventListener("click", function () {
-                        if(sp.style.color === "lightgray") {
-                            sp.style.color = "white";
-
-                            /* ---- Remove San Polo Filter ---- */
-                            filterCancel(sanPolo);
-                        }
-                        else{
-                            sp.style.color = "lightgray";
-
-                            /* ---- San Polo Filter ---- */
-                            filter(sanPolo);
-                        }
-                    });
 
                     rampPer.addEventListener("click", function () {
                         if(rampPer.style.color === "lightgray"){
