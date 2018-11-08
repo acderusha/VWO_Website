@@ -406,75 +406,91 @@ function filterLayer() {
 
     bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature,
             filter: function(feature, layer) {
-
-                if (rampPerFilter) {
-                    if (feature.properties.ramp === "permanent"){
-                        return true;
+                if(rampFilter) {
+                    if (rampPerFilter) {
+                        if (feature.properties.ramp === "permanent") {
+                            return true;
+                        }
+                    }
+                    if (rampTempFilter) {
+                        if (feature.properties.ramp === "temporary") {
+                            return true;
+                        }
+                    }
+                    if (rampNoneFilter) {
+                        if (feature.properties.ramp === "none") {
+                            return true;
+                        }
                     }
                 }
-                if (rampTempFilter) {
-                    if (feature.properties.ramp === "temporary"){
-                        return true;
+                if(railFilter) {
+                    if (railBothFilter) {
+                        if (feature.properties.railing === "both") {
+                            return true;
+                        }
+                    }
+                    if (railOneFilter) {
+                        if (feature.properties.railing === "one") {
+                            return true;
+                        }
+                    }
+                    if (railNoneFilter) {
+                        if (feature.properties.railing === "none") {
+                            return true;
+                        }
                     }
                 }
-                if (rampNoneFilter) {
-                    if (feature.properties.ramp === "none"){
-                        return true;
+                if(slipFilter) {
+                    if (slipInstallFilter) {
+                        if (feature.properties.slip_stair === "yes") {
+                            return true;
+                        }
+                    }
+                    if (slipNoneFilter) {
+                        if (feature.properties.slip_stair === "none") {
+                            return true;
+                        }
                     }
                 }
-                if (railBothFilter) {
-                    if (feature.properties.railing === "both"){
-                        return true;
+                if(openFilter) {
+                    if (openBothFilter) {
+                        if (feature.properties.opening === "both") {
+                            return true;
+                        }
+                    }
+                    if (openOneFilter) {
+                        if (feature.properties.opening === "one") {
+                            return true;
+                        }
+                    }
+                    if (openNoneFilter) {
+                        if (feature.properties.opening === "none") {
+                            return true;
+                        }
                     }
                 }
-                if (railOneFilter) {
-                    if (feature.properties.railing === "one"){
-                        return true;
+                if(tactFilter) {
+                    if (tactInstallFilter) {
+                        if (feature.properties.tactile === "yes") {
+                            return true;
+                        }
+                    }
+                    if (tactNoneFilter) {
+                        if (feature.properties.tactile === "none") {
+                            return true;
+                        }
                     }
                 }
-                if (railNoneFilter) {
-                    if (feature.properties.railing === "none"){
-                        return true;
+                if(propFilter) {
+                    if (privFilter) {
+                        if (feature.properties.private === "yes") {
+                            return true;
+                        }
                     }
-                }
-                if (slipInstallFilter) {
-                    if (feature.properties.slip_stair === "yes"){
-                        return true;
-                    }
-                }
-                if (slipNoneFilter) {
-                    if (feature.properties.slip_stair === "none"){
-                        return true;
-                    }
-                }
-                if (openBothFilter) {
-                    if (feature.properties.opening === "both"){
-                        return true;
-                    }
-                }
-                if (openOneFilter) {
-                    if (feature.properties.opening === "one"){
-                        return true;
-                    }
-                }
-                if (openNoneFilter) {
-                    if (feature.properties.opening === "none"){
-                        return true;
-                    }
-                }
-                if (tactInstallFilter) {
-                    if (feature.properties.tactile === "yes"){
-                        return true;
-                    }
-                }
-                if (tactNoneFilter) {
-                    if (feature.properties.tactile === "none"){
-                        return true;
-                    }
-                }
-                if (privFilter) {
-                    if (feature.properties.private === "yes"){
-                        return true;
+                    if (publicFilter) {
+                        if (feature.properties.private === "no") {
+                            return true;
+                        }
                     }
                 }
 
