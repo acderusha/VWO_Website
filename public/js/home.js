@@ -98,7 +98,10 @@ var bridges = [{
     }
 }];
 
+// Custom Info Control
+var info = L.control();
 
+// Style for bridges
 function style(feature) {
     return {
         fillColor: "#ff7800",
@@ -106,88 +109,76 @@ function style(feature) {
         opacity: 1,
         color: 'purple',
         dashArray: '3',
-        fillOpacity: 0.7
+        fillOpacity: 1
     };
 }
 
+/* ---------------------------- Map Interaction Functions --------------------------- */
 
-function initializeMapElements(birdgeLayer){
-    bridgeLayer.addTo(mymap);
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 1
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+
+    info.update(layer.feature.properties);
 }
 
-/* ---------------------------- Map Interaction Functions --------------------------- */
+function resetHighlight(e) {
+    bridgeLayer.resetStyle(e.target);
+    info.update();
+}
+
+function describeFeature(e) {
+    var layer = e.target;
+
+    var container = document.getElementById("descBoxContainer");
+    var description = document.getElementById("descBox");
+    container.style.display = "";
+    container.width = "300px";
+    description.style.display = "block";
+
+    addDescription(layer.feature.properties);
+
+    //mymap.fitBounds(e.target.getBounds());
+}
+
+function zoomToFeature(e) {
+    mymap.fitBounds(e.target.getBounds());
+
+    var layer = e.target;
+
+    var container = document.getElementById("descBoxContainer");
+    var description = document.getElementById("descBox");
+    container.style.display = "";
+    container.width = "300px";
+    description.style.display = "block";
+
+    addDescription(layer.feature.properties);
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: describeFeature,
+        dblclick: zoomToFeature
+    });
+}
+
+/* ---------------------------------- */
+
 function addMapElements() {
-    /* ------ Bridge Highlight ----------- */
-
-    function highlightFeature(e) {
-        var layer = e.target;
-
-        layer.setStyle({
-            weight: 5,
-            color: '#666',
-            dashArray: '',
-            fillOpacity: 0.7
-        });
-
-        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-            layer.bringToFront();
-        }
-
-        info.update(layer.feature.properties);
-    }
-
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
-
-    function describeFeature(e) {
-        var layer = e.target;
-
-        var container = document.getElementById("descBoxContainer");
-        var description = document.getElementById("descBox");
-        container.style.display = "";
-        container.width = "300px";
-        description.style.display = "block";
-
-        addDescription(layer.feature.properties);
-
-        //mymap.fitBounds(e.target.getBounds());
-    }
-
-    function zoomToFeature(e) {
-        mymap.fitBounds(e.target.getBounds());
-
-        var layer = e.target;
-
-        var container = document.getElementById("descBoxContainer");
-        var description = document.getElementById("descBox");
-        container.style.display = "";
-        container.width = "300px";
-        description.style.display = "block";
-
-        addDescription(layer.feature.properties);
-    }
-
-    function onEachFeature(feature, layer) {
-        layer.on({
-            mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            click: describeFeature,
-            dblclick: zoomToFeature
-        });
-    }
-
-    geojson = L.geoJson(bridges, {
-        style: style,
-        onEachFeature: onEachFeature
-    }).addTo(mymap);
-
-    /* ---------------------------------- */
 
     /* ------ Custom Info Control ----------- */
-
-    var info = L.control();
 
     info.onAdd = function (map) {
         this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -493,4 +484,31 @@ function filter(aFilter) {
 
 function filterCancel(aFilter) {
     aFilter.remove();
+}
+
+function filterLayer() {
+    mymap.removeLayer(bridgeLayer);
+
+    bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature,
+            filter: function(feature, layer) {
+
+                if (rampPerVar) {
+                    if (feature.properties.ramp === "permanent"){
+                        return true;
+                    }
+                }
+                if (rampTempVar) {
+                    if (feature.properties.ramp === "temporary"){
+                        return true;
+                    }
+                }
+                if (rampNoneVar) {
+                    if (feature.properties.ramp === "none"){
+                        return true;
+                    }
+                }
+        }
+    });
+
+    bridgeLayer.addTo(mymap);
 }

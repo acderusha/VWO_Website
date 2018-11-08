@@ -199,18 +199,24 @@
 
                     /* -------------------------- Filter Event Listeners ---------------------- */
 
+                    var rampPerVar = true;
+                    var rampTempVar = true;
+                    var rampNoneVar = true;
+
                     rampPer.addEventListener("click", function () {
                         if(rampPer.style.color === "lightgray"){
                             rampPer.style.color = "white";
 
                             /* ---- Remove Permanent Ramp Filter ---- */
-                            filterCancel(ramp_per);
+                            rampPerVar = true;
+                            filterLayer();
                         }
                         else{
                             rampPer.style.color = "lightgray";
 
                             /* ---- Permanent Ramp Filter ---- */
-                            filter(ramp_per);
+                            rampPerVar = false;
+                            filterLayer();
                         }
                     });
                     rampTemp.addEventListener("click", function () {
@@ -218,13 +224,15 @@
                             rampTemp.style.color = "white";
 
                             /* ---- Remove Temporary Ramp Filter ---- */
-                            filterCancel(ramp_temp);
+                            rampTempVar = true;
+                            filterLayer();
                         }
                         else{
                             rampTemp.style.color = "lightgray";
 
                             /* ---- Temporary Ramp Filter ---- */
-                            filter(ramp_temp);
+                            rampTempVar = false;
+                            filterLayer();
                         }
                     });
                     rampNone.addEventListener("click", function () {
@@ -232,13 +240,15 @@
                             rampNone.style.color = "white";
 
                             /* ---- Remove None Ramp Filter ---- */
-                            filterCancel(ramp_none);
+                            rampNoneVar = true;
+                            filterLayer();
                         }
                         else{
                             rampNone.style.color = "lightgray";
 
                             /* ---- None Ramp Filter ---- */
-                            filter(ramp_none);
+                            rampNoneVar = false;
+                            filterLayer();
                         }
                     });
 
@@ -482,10 +492,10 @@
         }
         mymap.on('click', onMapClick);*/
 
-        var bridgeLayer = L.geoJson(bridges, {style: style});
+        var bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature});
+        bridgeLayer.addTo(mymap);
 
-        initializeMapElements(bridgeLayer);
-        addMapElements(mymap);
+        addMapElements();
     </script>
 
 </body>
