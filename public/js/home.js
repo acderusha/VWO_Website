@@ -397,7 +397,7 @@ function addDescription(props){
 function filterLayer() {
     mymap.removeLayer(bridgeLayer);
 
-    console.log("rampPerFilter: " + rampPerFilter);
+    /*console.log("rampPerFilter: " + rampPerFilter);
     console.log("rampTempFilter: " + rampTempFilter);
     console.log("rampNoneFilter: " + rampNoneFilter);
     console.log("railBothFilter: " + railBothFilter);
@@ -411,7 +411,7 @@ function filterLayer() {
     console.log("tactInstallFilter: " + tactInstallFilter);
     console.log("tactNoneFilter: " + tactNoneFilter);
     console.log("publicFilter: " + publicFilter);
-    console.log("privFilter: " + privFilter);
+    console.log("privFilter: " + privFilter);*/
 
 
     bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature,
@@ -508,4 +508,259 @@ function filterLayer() {
     });
 
     bridgeLayer.addTo(mymap);
+}
+
+function filterRampPer() {
+    if (!rampPerCheck.checked) {
+        rampPerCheck.checked = true;
+
+        /* ---- Remove Permanent Ramp Filter ---- */
+        rampPerFilter = true;
+        filterLayer();
+    }
+    else {
+        rampPerCheck.checked = false;
+
+        /* ---- Permanent Ramp Filter ---- */
+        rampPerFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRampTemp() {
+    if (!rampTempCheck.checked) {
+        rampTempCheck.checked = true;
+
+        /* ---- Remove Temporary Ramp Filter ---- */
+        rampTempFilter = true;
+        filterLayer();
+    }
+    else {
+        rampTempCheck.checked = false;
+
+        /* ---- Temporary Ramp Filter ---- */
+        rampTempFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRampNone() {
+    if (!rampNoneCheck.checked) {
+        rampNoneCheck.checked = true;
+
+        /* ---- Remove None Ramp Filter ---- */
+        rampNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        rampNoneCheck.checked = false;
+
+        /* ---- None Ramp Filter ---- */
+        rampNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRailBoth() {
+    if (!railBothCheck.checked) {
+        railBothCheck.checked = true;
+
+        /* ---- Remove Both Rail Filter ---- */
+        railBothFilter = true;
+        filterLayer();
+    }
+    else {
+        railBothCheck.checked = false;
+
+        /* ---- Both Rail Filter ---- */
+        railBothFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRailOne() {
+    if (!railOneCheck.checked) {
+        railOneCheck.checked = true;
+
+        /* ---- Remove One Rail Filter ---- */
+        railOneFilter = true;
+        filterLayer();
+    }
+    else {
+        railOneCheck.checked = false;
+
+        /* ---- One Rail Filter ---- */
+        railOneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRailNone() {
+    if (!railNoneCheck.checked) {
+        railNoneCheck.checked = true;
+
+        /* ---- Remove None Rail Filter ---- */
+        railNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        railNoneCheck.checked = false;
+
+        /* ---- None Rail Filter ---- */
+        railNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterSlipInstall() {
+    if (!slipInstallCheck.checked) {
+        slipInstallCheck.checked = true;
+
+        /* ---- Remove Install Slip Filter ---- */
+        slipInstallFilter = true;
+        filterLayer();
+    }
+    else {
+        slipInstallCheck.checked = false;
+
+        /* ---- Install Slip Filter ---- */
+        slipInstallFilter = false;
+        filterLayer();
+    }
+}
+
+function filterSlipNone() {
+    if (!slipNoneCheck.checked) {
+        slipNoneCheck.checked = true;
+
+        /* ---- Remove Install Slip Filter ---- */
+        slipNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        slipNoneCheck.checked = false;
+
+        /* ---- Install Slip Filter ---- */
+        slipNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterOpenBoth() {
+    if (!openBothCheck.checked) {
+        openBothCheck.checked = true;
+
+        /* ---- Remove Both Opening Filter ---- */
+        openBothFilter = true;
+        filterLayer();
+    }
+    else {
+        openBothCheck.checked = false;
+
+        /* ---- Both Opening Filter ---- */
+        openBothFilter = false;
+        filterLayer();
+    }
+}
+
+function filterOpenOne() {
+    if (!openOneCheck.checked) {
+        openOneCheck.checked = true;
+
+        /* ---- Remove One Opening Filter ---- */
+        openOneFilter = true;
+        filterLayer();
+    }
+    else {
+        openOneCheck.checked = false;
+
+        /* ---- One Opening Filter ---- */
+        openOneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterOpenNone() {
+    if (!openNoneCheck.checked) {
+        openNoneCheck.checked = true;
+
+        /* ---- Remove None Opening Filter ---- */
+        openNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        openNoneCheck.checked = false;
+
+        /* ---- None Opening Filter ---- */
+        openNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterTactInstall() {
+    if (!tactInstallCheck.checked) {
+        tactInstallCheck.checked = true;
+
+        /* ---- Remove Installed Tactile Filter ---- */
+        tactInstallFilter = true;
+        filterLayer();
+    }
+    else {
+        tactInstallCheck.checked = false;
+
+        /* ---- Installed Tactile Filter ---- */
+        tactInstallFilter = false;
+        filterLayer();
+    }
+}
+
+function filterTactNone() {
+    if (!tactNoneCheck.checked) {
+        tactNoneCheck.checked = true;
+
+        /* ---- Remove None Tactile Filter ---- */
+        tactNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        tactNoneCheck.checked = false;
+
+        /* ---- None Tactile Filter ---- */
+        tactNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterPublic() {
+    if (!pubCheck.checked) {
+        pubCheck.checked = true;
+
+        /* ---- Remove Private Filter ---- */
+        publicFilter = true;
+        filterLayer();
+    }
+    else {
+        pubCheck.checked = false;
+
+        /*---- Private Filter ---- */
+        publicFilter = false;
+        filterLayer();
+    }
+}
+
+function filterPrivate() {
+    if (!privCheck.checked) {
+        privCheck.checked = true;
+
+        /* ---- Remove Private Filter ---- */
+        privFilter = true;
+        filterLayer();
+    }
+    else {
+        privCheck.checked = false;
+
+        /*---- Private Filter ---- */
+        privFilter = false;
+        filterLayer();
+    }
 }
