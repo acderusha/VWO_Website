@@ -32,7 +32,7 @@
                     Filters
                 </div>
                 <div id="rampDiv" class="filterBoxItemClick" onclick="showRamp()">
-                    <input type ="radio" name="filter" id="ramp" onclick="showRamp()">
+                    <!--<input type ="radio" name="filter" id="ramp" onclick="showRamp()">-->
                     Ramps<br>
                 </div>
                 <div id="perm" class="filterBoxItem">
@@ -48,7 +48,7 @@
                     No Ramp
                 </div>
                 <div id="railDiv"class="filterBoxItemClick" onclick="showRail()">
-                    <input type ="radio" name="filter" id="railing" onclick="showRail()">
+                    <!--<input type ="radio" name="filter" id="railing" onclick="showRail()">-->
                     Railing<br>
                 </div>
                 <div id="both" class="filterBoxItem">
@@ -64,7 +64,7 @@
                     No Railings
                 </div>
                 <div id="slipDiv" class="filterBoxItemClick" onclick="showSlip()">
-                    <input type ="radio" name="filter" id="slip" onclick="showSlip()">
+                    <!--<input type ="radio" name="filter" id="slip" onclick="showSlip()">-->
                     Slip Stair Edging <br>
                 </div>
                 <div id="installSlip" class="filterBoxItem">
@@ -76,7 +76,7 @@
                     No Edging
                 </div>
                 <div id="openDiv" class="filterBoxItemClick" onclick="showOpen()">
-                    <input type ="radio" name="filter" id="opening" onclick="showOpen()">
+                    <!--<input type ="radio" name="filter" id="opening" onclick="showOpen()">-->
                     Canal Opening<br>
                 </div>
                 <div id="openBoth" class="filterBoxItem">
@@ -92,7 +92,7 @@
                     No Openings
                 </div>
                 <div id="tactDiv" class="filterBoxItemClick" onclick="showTact()">
-                    <input type="radio" name="filter" id="tactile" onclick="showTact()">
+                    <!--<input type="radio" name="filter" id="tactile" onclick="showTact()">-->
                     Tactile Pavement<br>
                 </div>
                 <div id="installTact" class="filterBoxItem">
@@ -104,7 +104,7 @@
                     No Tactile
                 </div>
                 <div id="propDiv" class="filterBoxItemClick" onclick="showProp()">
-                    <input type="radio" name="filter" id="property" onclick="showProp()">
+                    <!--<input type="radio" name="filter" id="property" onclick="showProp()">-->
                     Property<br>
                 </div>
                 <div id="pub" class="filterBoxItem">
@@ -176,59 +176,59 @@
                     function showRamp() {
                         rampFilter = true;
                         ramp.checked = true;
-                        rampDiv.style.color = "white";
+                        /*rampDiv.style.color = "white";
                         rampPer.style.color = "white";
                         rampTemp.style.color = "white";
                         rampNone.style.color = "white";
                         rampPerCheck.style.display = "inline-block";
                         rampTempCheck.style.display = "inline-block";
-                        rampNoneCheck.style.display = "inline-block";
+                        rampNoneCheck.style.display = "inline-block";*/
 
                         railFilter = false;
                         railing.checked = false;
-                        railDiv.style.color = "lightgray";
+                        /*railDiv.style.color = "lightgray";
                         railBoth.style.color = "lightgray";
                         railOne.style.color = "lightgray";
                         railNone.style.color = "lightgray";
                         railBothCheck.style.display = "none";
                         railOneCheck.style.display = "none";
-                        railNoneCheck.style.display = "none";
+                        railNoneCheck.style.display = "none";*/
 
                         slipFilter = false;
                         slip.checked = false;
-                        slipDiv.style.color = "lightgray";
+                        /*slipDiv.style.color = "lightgray";
                         slipInstall.style.color = "lightgray";
                         slipNone.style.color = "lightgray";
                         slipInstallCheck.style.display = "none";
-                        slipNoneCheck.style.display = "none";
+                        slipNoneCheck.style.display = "none";*/
 
                         openFilter = false;
                         opening.checked = false;
-                        openDiv.style.color = "lightgray";
+                        /*openDiv.style.color = "lightgray";
                         openBoth.style.color = "lightgray";
                         openOne.style.color = "lightgray";
                         openNone.style.color = "lightgray";
                         openBothCheck.style.display = "none";
                         openOneCheck.style.display = "none";
-                        openNoneCheck.style.display = "none";
+                        openNoneCheck.style.display = "none";*/
 
                         tactFilter = false;
                         tactile.checked = false;
-                        tactDiv.style.color = "lightgray";
+                        /*tactDiv.style.color = "lightgray";
                         tactInstall.style.color = "lightgray";
                         tactNone.style.color = "lightgray";
                         tactInstall.style.color = "lightgray";
                         tactNone.style.color = "lightgray";
                         tactInstallCheck.style.display = "none";
-                        tactNoneCheck.style.display = "none";
+                        tactNoneCheck.style.display = "none";*/
 
                         propFilter = false;
                         property.checked = false;
-                        propDiv.style.color = "lightgray";
+                        /*propDiv.style.color = "lightgray";
                         pub.style.color = "lightgray";
                         priv.style.color = "lightgray";
                         pubCheck.style.display = "none";
-                        privCheck.style.display = "none";
+                        privCheck.style.display = "none";*/
 
                         filterLayer();
                     };
@@ -236,57 +236,57 @@
                     function showRail() {
                         rampFilter = false;
                         ramp.checked = false;
-                        rampDiv.style.color = "lightgray";
+                        /*rampDiv.style.color = "lightgray";
                         rampPer.style.color = "lightgray";
                         rampTemp.style.color = "lightgray";
                         rampNone.style.color = "lightgray";
                         rampPerCheck.style.display = "none";
                         rampTempCheck.style.display = "none";
-                        rampNoneCheck.style.display = "none";
+                        rampNoneCheck.style.display = "none";*/
 
                         railFilter = true;
                         railing.checked = true;
-                        railDiv.style.color = "white";
+                        /*railDiv.style.color = "white";
                         railBoth.style.color = "white";
                         railOne.style.color = "white";
                         railNone.style.color = "white";
                         railBothCheck.style.display = "inline-block";
                         railOneCheck.style.display = "inline-block";
-                        railNoneCheck.style.display = "inline-block";
+                        railNoneCheck.style.display = "inline-block";*/
 
                         slipFilter = false;
                         slip.checked = false;
-                        slipDiv.style.color = "lightgray";
+                        /*slipDiv.style.color = "lightgray";
                         slipInstall.style.color = "lightgray";
                         slipNone.style.color = "lightgray";
                         slipInstallCheck.style.display = "none";
-                        slipNoneCheck.style.display = "none";
+                        slipNoneCheck.style.display = "none";*/
 
                         openFilter = false;
                         opening.checked = false;
-                        openDiv.style.color = "lightgray";
+                        /*openDiv.style.color = "lightgray";
                         openBoth.style.color = "lightgray";
                         openOne.style.color = "lightgray";
                         openNone.style.color = "lightgray";
                         openBothCheck.style.display = "none";
                         openOneCheck.style.display = "none";
-                        openNoneCheck.style.display = "none";
+                        openNoneCheck.style.display = "none";*/
 
                         tactFilter = false;
                         tactile.checked = false;
-                        tactDiv.style.color = "lightgray";
+                        /*tactDiv.style.color = "lightgray";
                         tactInstall.style.color = "lightgray";
                         tactNone.style.color = "lightgray";
                         tactInstallCheck.style.display = "none";
-                        tactNoneCheck.style.display = "none";
+                        tactNoneCheck.style.display = "none";*/
 
                         propFilter = false;
                         property.checked = false;
-                        propDiv.style.color = "lightgray";
+                        /*propDiv.style.color = "lightgray";
                         pub.style.color = "lightgray";
                         priv.style.color = "lightgray";
                         pubCheck.style.display = "none";
-                        privCheck.style.display = "none";
+                        privCheck.style.display = "none";*/
 
                         filterLayer();
                     };
@@ -294,57 +294,57 @@
                     function showSlip() {
                         rampFilter = false;
                         ramp.checked = false;
-                        rampDiv.style.color = "lightgray";
+                        /*rampDiv.style.color = "lightgray";
                         rampPer.style.color = "lightgray";
                         rampTemp.style.color = "lightgray";
                         rampNone.style.color = "lightgray";
                         rampPerCheck.style.display = "none";
                         rampTempCheck.style.display = "none";
-                        rampNoneCheck.style.display = "none";
+                        rampNoneCheck.style.display = "none";*/
 
                         railFilter = false;
                         railing.checked = false;
-                        railDiv.style.color = "lightgray";
+                        /*railDiv.style.color = "lightgray";
                         railBoth.style.color = "lightgray";
                         railOne.style.color = "lightgray";
                         railNone.style.color = "lightgray";
                         railBothCheck.style.display = "none";
                         railOneCheck.style.display = "none";
-                        railNoneCheck.style.display = "none";
+                        railNoneCheck.style.display = "none";*/
 
                         slipFilter = true;
                         slip.checked = true;
-                        slipDiv.style.color = "white";
+                        /*slipDiv.style.color = "white";
                         slipInstall.style.color = "white";
                         slipNone.style.color = "white";
                         slipInstallCheck.style.display = "inline-block";
-                        slipNoneCheck.style.display = "inline-block";
+                        slipNoneCheck.style.display = "inline-block";*/
 
                         openFilter = false;
                         opening.checked = false;
-                        openDiv.style.color = "lightgray";
+                        /*openDiv.style.color = "lightgray";
                         openBoth.style.color = "lightgray";
                         openOne.style.color = "lightgray";
                         openNone.style.color = "lightgray";
                         openBothCheck.style.display = "none";
                         openOneCheck.style.display = "none";
-                        openNoneCheck.style.display = "none";
+                        openNoneCheck.style.display = "none";*/
 
                         tactFilter = false;
                         tactile.checked = false;
-                        tactDiv.style.color = "lightgray";
+                        /*tactDiv.style.color = "lightgray";
                         tactInstall.style.color = "lightgray";
                         tactNone.style.color = "lightgray";
                         tactInstallCheck.style.display = "none";
-                        tactNoneCheck.style.display = "none";
+                        tactNoneCheck.style.display = "none";*/
 
                         propFilter = false;
                         property.checked = false;
-                        propDiv.style.color = "lightgray";
+                        /*propDiv.style.color = "lightgray";
                         pub.style.color = "lightgray";
                         priv.style.color = "lightgray";
                         pubCheck.style.display = "none";
-                        privCheck.style.display = "none";
+                        privCheck.style.display = "none";*/
 
                         filterLayer();
                     };
@@ -352,57 +352,57 @@
                     function showOpen() {
                         rampFilter = false;
                         ramp.checked = false;
-                        rampDiv.style.color = "lightgray";
+                        /*rampDiv.style.color = "lightgray";
                         rampPer.style.color = "lightgray";
                         rampTemp.style.color = "lightgray";
                         rampNone.style.color = "lightgray";
                         rampPerCheck.style.display = "none";
                         rampTempCheck.style.display = "none";
-                        rampNoneCheck.style.display = "none";
+                        rampNoneCheck.style.display = "none";*/
 
                         railFilter = false;
                         railing.checked = false;
-                        railDiv.style.color = "lightgray";
+                        /*railDiv.style.color = "lightgray";
                         railBoth.style.color = "lightgray";
                         railOne.style.color = "lightgray";
                         railNone.style.color = "lightgray";
                         railBothCheck.style.display = "none";
                         railOneCheck.style.display = "none";
-                        railNoneCheck.style.display = "none";
+                        railNoneCheck.style.display = "none";*/
 
                         slipFilter = false;
                         slip.checked = false;
-                        slipDiv.style.color = "lightgray";
+                        /*slipDiv.style.color = "lightgray";
                         slipInstall.style.color = "lightgray";
                         slipNone.style.color = "lightgray";
                         slipInstallCheck.style.display = "none";
-                        slipNoneCheck.style.display = "none";
+                        slipNoneCheck.style.display = "none";*/
 
                         openFilter = true;
                         opening.checked = true;
-                        openDiv.style.color = "white";
+                        /*openDiv.style.color = "white";
                         openBoth.style.color = "white";
                         openOne.style.color = "white";
                         openNone.style.color = "white";
                         openBothCheck.style.display = "inline-block";
                         openOneCheck.style.display = "inline-block";
-                        openNoneCheck.style.display = "inline-block";
+                        openNoneCheck.style.display = "inline-block";*/
 
                         tactFilter = false;
                         tactile.checked = false;
-                        tactDiv.style.color = "lightgray";
+                        /*tactDiv.style.color = "lightgray";
                         tactInstall.style.color = "lightgray";
                         tactNone.style.color = "lightgray";
                         tactInstallCheck.style.display = "none";
-                        tactNoneCheck.style.display = "none";
+                        tactNoneCheck.style.display = "none";*/
 
                         propFilter = false;
                         property.checked = false;
-                        propDiv.style.color = "lightgray";
+                        /*propDiv.style.color = "lightgray";
                         pub.style.color = "lightgray";
                         priv.style.color = "lightgray";
                         pubCheck.style.display = "none";
-                        privCheck.style.display = "none";
+                        privCheck.style.display = "none";*/
 
                         filterLayer();
                     };
@@ -410,57 +410,57 @@
                     function showTact() {
                         rampFilter = false;
                         ramp.checked = false;
-                        rampDiv.style.color = "lightgray";
+                        /*rampDiv.style.color = "lightgray";
                         rampPer.style.color = "lightgray";
                         rampTemp.style.color = "lightgray";
                         rampNone.style.color = "lightgray";
                         rampPerCheck.style.display = "none";
                         rampTempCheck.style.display = "none";
-                        rampNoneCheck.style.display = "none";
+                        rampNoneCheck.style.display = "none";*/
 
                         railFilter = false;
                         railing.checked = false;
-                        railDiv.style.color = "lightgray";
+                        /*railDiv.style.color = "lightgray";
                         railBoth.style.color = "lightgray";
                         railOne.style.color = "lightgray";
                         railNone.style.color = "lightgray";
                         railBothCheck.style.display = "none";
                         railOneCheck.style.display = "none";
-                        railNoneCheck.style.display = "none";
+                        railNoneCheck.style.display = "none";*/
 
                         slipFilter = false;
                         slip.checked = false;
-                        slipDiv.style.color = "lightgray";
+                        /*slipDiv.style.color = "lightgray";
                         slipInstall.style.color = "lightgray";
                         slipNone.style.color = "lightgray";
                         slipInstallCheck.style.display = "none";
-                        slipNoneCheck.style.display = "none";
+                        slipNoneCheck.style.display = "none";*/
 
                         openFilter = false;
                         opening.checked = false;
-                        openDiv.style.color = "lightgray";
+                        /*openDiv.style.color = "lightgray";
                         openBoth.style.color = "lightgray";
                         openOne.style.color = "lightgray";
                         openNone.style.color = "lightgray";
                         openBothCheck.style.display = "none";
                         openOneCheck.style.display = "none";
-                        openNoneCheck.style.display = "none";
+                        openNoneCheck.style.display = "none";*/
 
                         tactFilter = true;
                         tactile.checked = true;
-                        tactDiv.style.color = "white";
+                        /*tactDiv.style.color = "white";
                         tactInstall.style.color = "white";
                         tactNone.style.color = "white";
                         tactInstallCheck.style.display = "inline-block";
-                        tactNoneCheck.style.display = "inline-block";
+                        tactNoneCheck.style.display = "inline-block";*/
 
                         propFilter = false;
                         property.checked = false;
-                        propDiv.style.color = "lightgray";
+                        /*propDiv.style.color = "lightgray";
                         pub.style.color = "lightgray";
                         priv.style.color = "lightgray";
                         pubCheck.style.display = "none";
-                        privCheck.style.display = "none";
+                        privCheck.style.display = "none";*/
 
                         filterLayer();
                     };
@@ -468,57 +468,57 @@
                     function showProp() {
                         rampFilter = false;
                         ramp.checked = false;
-                        rampDiv.style.color = "lightgray";
+                        /*rampDiv.style.color = "lightgray";
                         rampPer.style.color = "lightgray";
                         rampTemp.style.color = "lightgray";
                         rampNone.style.color = "lightgray";
                         rampPerCheck.style.display = "none";
                         rampTempCheck.style.display = "none";
-                        rampNoneCheck.style.display = "none";
+                        rampNoneCheck.style.display = "none";*/
 
                         railFilter = false;
                         railing.checked = false;
-                        railDiv.style.color = "lightgray";
+                        /*railDiv.style.color = "lightgray";
                         railBoth.style.color = "lightgray";
                         railOne.style.color = "lightgray";
                         railNone.style.color = "lightgray";
                         railBothCheck.style.display = "none";
                         railOneCheck.style.display = "none";
-                        railNoneCheck.style.display = "none";
+                        railNoneCheck.style.display = "none";*/
 
                         slipFilter = false;
                         slip.checked = false;
-                        slipDiv.style.color = "lightgray";
+                        /*slipDiv.style.color = "lightgray";
                         slipInstall.style.color = "lightgray";
                         slipNone.style.color = "lightgray";
                         slipInstallCheck.style.display = "none";
-                        slipNoneCheck.style.display = "none";
+                        slipNoneCheck.style.display = "none";*/
 
                         openFilter = false;
                         opening.checked = false;
-                        openDiv.style.color = "lightgray";
+                        /*openDiv.style.color = "lightgray";
                         openBoth.style.color = "lightgray";
                         openOne.style.color = "lightgray";
                         openNone.style.color = "lightgray";
                         openBothCheck.style.display = "none";
                         openOneCheck.style.display = "none";
-                        openNoneCheck.style.display = "none";
+                        openNoneCheck.style.display = "none";*/
 
                         tactFilter = false;
                         tactile.checked = false;
-                        tactDiv.style.color = "lightgray";
+                        /*tactDiv.style.color = "lightgray";
                         tactInstall.style.color = "lightgray";
                         tactNone.style.color = "lightgray";
                         tactInstallCheck.style.display = "none";
-                        tactNoneCheck.style.display = "none";
+                        tactNoneCheck.style.display = "none";*/
 
                         propFilter = true;
                         property.checked = true;
-                        propDiv.style.color = "white";
+                        /*propDiv.style.color = "white";
                         pub.style.color = "white";
                         priv.style.color = "white";
                         pubCheck.style.display = "inline-block";
-                        privCheck.style.display = "inline-block";
+                        privCheck.style.display = "inline-block";*/
 
                         filterLayer();
                     };
@@ -542,7 +542,7 @@
                     var privFilter = true;
 
                     rampPer.addEventListener("click", function () {
-                        if(ramp.checked) {
+                        //if(ramp.checked) {
                             if (!rampPerCheck.checked) {
                                 rampPerCheck.checked = true;
 
@@ -557,10 +557,10 @@
                                 rampPerFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     rampTemp.addEventListener("click", function () {
-                        if(ramp.checked) {
+                        //if(ramp.checked) {
                             if (!rampTempCheck.checked) {
                                 rampTempCheck.checked = true;
 
@@ -575,10 +575,10 @@
                                 rampTempFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     rampNone.addEventListener("click", function () {
-                        if(ramp.checked) {
+                        //if(ramp.checked) {
                             if (!rampNoneCheck.checked) {
                                 rampNoneCheck.checked = true;
 
@@ -593,11 +593,11 @@
                                 rampNoneFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
 
                     railBoth.addEventListener("click", function () {
-                        if(railing.checked) {
+                        //if(railing.checked) {
                             if (!railBothCheck.checked) {
                                 railBothCheck.checked = true;
 
@@ -612,10 +612,10 @@
                                 railBothFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     railOne.addEventListener("click", function () {
-                        if(railing.checked) {
+                        //if(railing.checked) {
                             if (!railOneCheck.checked) {
                                 railOneCheck.checked = true;
 
@@ -630,10 +630,10 @@
                                 railOneFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     railNone.addEventListener("click", function () {
-                        if(railing.checked) {
+                        //if(railing.checked) {
                             if (!railNoneCheck.checked) {
                                 railNoneCheck.checked = true;
 
@@ -648,11 +648,11 @@
                                 railNoneFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
 
                     slipInstall.addEventListener("click", function () {
-                        if(slip.checked) {
+                        //if(slip.checked) {
                             if (!slipInstallCheck.checked) {
                                 slipInstallCheck.checked = true;
 
@@ -667,10 +667,10 @@
                                 slipInstallFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     slipNone.addEventListener("click", function () {
-                        if(slip.checked) {
+                        //if(slip.checked) {
                             if (!slipNoneCheck.checked) {
                                 slipNoneCheck.checked = true;
 
@@ -685,11 +685,11 @@
                                 slipNoneFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
 
                     openBoth.addEventListener("click", function () {
-                        if(opening.checked) {
+                        //if(opening.checked) {
                             if (!openBothCheck.checked) {
                                 openBothCheck.checked = true;
 
@@ -704,10 +704,10 @@
                                 openBothFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     openOne.addEventListener("click", function () {
-                        if(opening.checked) {
+                        //if(opening.checked) {
                             if (!openOneCheck.checked) {
                                 openOneCheck.checked = true;
 
@@ -722,10 +722,10 @@
                                 openOneFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     openNone.addEventListener("click", function () {
-                        if(opening.checked) {
+                        //if(opening.checked) {
                             if (!openNoneCheck.checked) {
                                 openNoneCheck.checked = true;
 
@@ -740,11 +740,11 @@
                                 openNoneFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
 
                     tactInstall.addEventListener("click", function () {
-                        if(tactile.checked) {
+                        //if(tactile.checked) {
                             if (!tactInstallCheck.checked) {
                                 tactInstallCheck.checked = true;
 
@@ -759,10 +759,10 @@
                                 tactInstallFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     tactNone.addEventListener("click", function () {
-                        if(tactile.checked) {
+                        //if(tactile.checked) {
                             if (!tactNoneCheck.checked) {
                                 tactNoneCheck.checked = true;
 
@@ -777,11 +777,11 @@
                                 tactNoneFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
 
                     pub.addEventListener("click", function () {
-                        if(property.checked) {
+                        //if(property.checked) {
                             if (!pubCheck.checked) {
                                 pubCheck.checked = true;
 
@@ -796,10 +796,10 @@
                                 publicFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                     priv.addEventListener("click", function () {
-                        if(property.checked) {
+                        //if(property.checked) {
                             if (!privCheck.checked) {
                                 privCheck.checked = true;
 
@@ -814,7 +814,7 @@
                                 privFilter = false;
                                 filterLayer();
                             }
-                        }
+                        //}
                     });
                 </script>
             </div>
