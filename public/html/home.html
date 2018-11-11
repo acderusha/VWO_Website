@@ -31,375 +31,186 @@
                 <div style="color: lightgray; font-size: 20px; border-bottom: 1px lightgray solid; padding-bottom: 3px">
                     Filters
                 </div>
-                <div id="ramp" class="filterBoxItemClick">
-                    &#9656 Ramps
+                <div id="rampDiv" class="filterBoxItemClick" onclick="showRamp()">
+                    Ramps<br>
                 </div>
-                <div id="perm" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="perm" class="filterBoxItem">
+                    <input id="rampPerCheck" type="checkbox" class="filterCheck" checked>
                     Permanent
                 </div>
-                <div id="temp" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="temp" class="filterBoxItem">
+                    <input id="rampTempCheck" type="checkbox" class="filterCheck" checked>
                     Temporary
                 </div>
-                <div id="ramp_none" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="ramp_none" class="filterBoxItem">
+                    <input id="rampNoneCheck" type="checkbox" class="filterCheck" checked>
                     No Ramp
                 </div>
-                <div id="railing" class="filterBoxItemClick">
-                    &#9656 Railing
+                <div id="railDiv"class="filterBoxItemClick" onclick="showRail()">
+                    Railing<br>
                 </div>
-                <div id="both" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="both" class="filterBoxItem">
+                    <input id="railBothCheck" type="checkbox" class="filterCheck" checked>
                     Both Sides
                 </div>
-                <div id="one" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="one" class="filterBoxItem">
+                    <input id="railOneCheck" type="checkbox" class="filterCheck" checked>
                     One Side
                 </div>
-                <div id="rail_none" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="rail_none" class="filterBoxItem">
+                    <input id="railNoneCheck" type="checkbox" class="filterCheck" checked>
                     No Railings
                 </div>
-                <div id="slip" class="filterBoxItemClick">
-                    &#9656 Slip Stair Edging
+                <div id="slipDiv" class="filterBoxItemClick" onclick="showSlip()">
+                    Slip Stair Edging <br>
                 </div>
-                <div id="installSlip" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="installSlip" class="filterBoxItem">
+                    <input id="slipInstallCheck" type="checkbox" class="filterCheck" checked>
                     Installed Edging
                 </div>
-                <div id="noneSlip" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="noneSlip" class="filterBoxItem">
+                    <input id="slipNoneCheck" type="checkbox" class="filterCheck" checked>
                     No Edging
                 </div>
-                <div id="opening" class="filterBoxItemClick">
-                    &#9656 Canal Opening
+                <div id="openDiv" class="filterBoxItemClick" onclick="showOpen()">
+                    Canal Opening<br>
                 </div>
-                <div id="openBoth" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="openBoth" class="filterBoxItem">
+                    <input id="openBothCheck" type="checkbox" class="filterCheck" checked>
                     Opening Both Sides
                 </div>
-                <div id="openOne" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="openOne" class="filterBoxItem">
+                    <input id="openOneCheck" type="checkbox" class="filterCheck" checked>
                     Opening One Side
                 </div>
-                <div id="openNone" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="openNone" class="filterBoxItem">
+                    <input id="openNoneCheck" type="checkbox" class="filterCheck" checked>
                     No Openings
                 </div>
-                <div id="tactile" class="filterBoxItemClick">
-                    &#9656 Tactile Pavement
+                <div id="tactDiv" class="filterBoxItemClick" onclick="showTact()">
+                    Tactile Pavement<br>
                 </div>
-                <div id="installTact" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="installTact" class="filterBoxItem">
+                    <input id="tactInstallCheck" type="checkbox" class="filterCheck" checked>
                     Installed Tactile
                 </div>
-                <div id="noneTact" class="filterBoxItem" style="display: none; margin-left: 30px">
+                <div id="noneTact" class="filterBoxItem">
+                    <input id="tactNoneCheck" type="checkbox" class="filterCheck" checked>
                     No Tactile
                 </div>
-                <div id="private" class="filterBoxItem">
+                <div id="propDiv" class="filterBoxItemClick" onclick="showProp()">
+                    Property<br>
+                </div>
+                <div id="pub" class="filterBoxItem">
+                    <input id="pubCheck" type="checkbox" class="filterCheck" checked>
+                    Public
+                </div>
+                <div id="priv" class="filterBoxItem">
+                    <input id="privCheck" type="checkbox" class="filterCheck" checked>
                     Private
                 </div>
 
                 <script>
-                    var ramp = document.getElementById("ramp");
                     var rampPer = document.getElementById("perm");
                     var rampTemp = document.getElementById("temp");
                     var rampNone = document.getElementById("ramp_none");
+                    var rampPerCheck = document.getElementById("rampPerCheck");
+                    var rampTempCheck = document.getElementById("rampTempCheck");
+                    var rampNoneCheck = document.getElementById("rampNoneCheck");
 
-                    var rail = document.getElementById("railing");
                     var railBoth = document.getElementById("both");
                     var railOne = document.getElementById("one");
                     var railNone = document.getElementById("rail_none");
+                    var railBothCheck = document.getElementById("railBothCheck");
+                    var railOneCheck = document.getElementById("railOneCheck");
+                    var railNoneCheck = document.getElementById("railNoneCheck");
 
-                    var slip = document.getElementById("slip");
                     var slipInstall = document.getElementById("installSlip");
                     var slipNone = document.getElementById("noneSlip");
+                    var slipInstallCheck = document.getElementById("slipInstallCheck");
+                    var slipNoneCheck = document.getElementById("slipNoneCheck");
 
-                    var open = document.getElementById("opening");
                     var openBoth = document.getElementById("openBoth");
                     var openOne = document.getElementById("openOne");
                     var openNone = document.getElementById("openNone");
+                    var openBothCheck = document.getElementById("openBothCheck");
+                    var openOneCheck = document.getElementById("openOneCheck");
+                    var openNoneCheck = document.getElementById("openNoneCheck");
 
-                    var tact = document.getElementById("tactile");
                     var tactInstall = document.getElementById("installTact");
                     var tactNone = document.getElementById("noneTact");
+                    var tactInstallCheck = document.getElementById("tactInstallCheck");
+                    var tactNoneCheck = document.getElementById("tactNoneCheck");
 
-                    var priv = document.getElementById("private");
+                    var pub = document.getElementById("pub");
+                    var priv = document.getElementById("priv");
+                    var pubCheck = document.getElementById("pubCheck");
+                    var privCheck = document.getElementById("privCheck");
 
-                    /* -------------------------- Display Event Listeners ---------------------- */
-                    ramp.addEventListener("click", function () {
-                        if(rampPer.style.display === "none"){
-                            rampPer.style.display = "block";
-                            rampTemp.style.display = "block";
-                            rampNone.style.display = "block";
-
-                            ramp.innerHTML = "&#9662 Ramps";
-                        }
-                        else{
-                            rampPer.style.display = "none";
-                            rampTemp.style.display = "none";
-                            rampNone.style.display = "none";
-
-                            ramp.innerHTML = "&#9656 Ramps";
-                        }
-                    });
-
-                    rail.addEventListener("click", function () {
-                        if(railBoth.style.display === "none"){
-                            railBoth.style.display = "block";
-                            railOne.style.display = "block";
-                            railNone.style.display = "block";
-
-                            rail.innerHTML = "&#9662 Railing";
-                        }
-                        else{
-                            railBoth.style.display = "none";
-                            railOne.style.display = "none";
-                            railNone.style.display = "none";
-
-                            rail.innerHTML = "&#9656 Railing";
-                        }
-                    });
-
-                    slip.addEventListener("click", function () {
-                        if(slipInstall.style.display === "none"){
-                            slipInstall.style.display = "block";
-                            slipNone.style.display = "block";
-
-                            slip.innerHTML = "&#9662 Slip Stair Edging";
-                        }
-                        else{
-                            slipInstall.style.display = "none";
-                            slipNone.style.display = "none";
-
-                            slip.innerHTML = "&#9656 Slip Stair Edging";
-                        }
-                    });
-
-                    open.addEventListener("click", function () {
-                        if(openBoth.style.display === "none"){
-                            openBoth.style.display = "block";
-                            openOne.style.display = "block";
-                            openNone.style.display = "block";
-
-                            open.innerHTML = "&#9662 Canal Opening";
-                        }
-                        else{
-                            openBoth.style.display = "none";
-                            openOne.style.display = "none";
-                            openNone.style.display = "none";
-
-                            open.innerHTML = "&#9656 Canal Opening";
-                        }
-                    });
-
-                    tact.addEventListener("click", function () {
-                        if(tactInstall.style.display === "none"){
-                            tactInstall.style.display = "block";
-                            tactNone.style.display = "block";
-
-                            tact.innerHTML = "&#9662 Tactile Pavement";
-                        }
-                        else{
-                            tactInstall.style.display = "none";
-                            tactNone.style.display = "none";
-
-                            tact.innerHTML = "&#9656 Tactile Pavement";
-                        }
-                    });
 
                     /* -------------------------- Filter Event Listeners ---------------------- */
 
-                    rampPer.addEventListener("click", function () {
-                        if(rampPer.style.color === "lightgray"){
-                            rampPer.style.color = "white";
+                    var rampPerFilter = true;
+                    var rampTempFilter = true;
+                    var rampNoneFilter = true;
+                    var railBothFilter = true;
+                    var railOneFilter = true;
+                    var railNoneFilter = true;
+                    var slipInstallFilter = true;
+                    var slipNoneFilter = true;
+                    var openBothFilter = true;
+                    var openOneFilter = true;
+                    var openNoneFilter = true;
+                    var tactInstallFilter = true;
+                    var tactNoneFilter = true;
+                    var publicFilter = true;
+                    var privFilter = true;
 
-                            /* ---- Remove Permanent Ramp Filter ---- */
-                            filterCancel(ramp_per);
-                        }
-                        else{
-                            rampPer.style.color = "lightgray";
+                    rampPer.addEventListener("click", filterRampPer);
+                    rampPerCheck.addEventListener("click", filterRampPer);
 
-                            /* ---- Permanent Ramp Filter ---- */
-                            filter(ramp_per);
-                        }
-                    });
-                    rampTemp.addEventListener("click", function () {
-                        if(rampTemp.style.color === "lightgray") {
-                            rampTemp.style.color = "white";
+                    rampTemp.addEventListener("click", filterRampTemp);
+                    rampTempCheck.addEventListener("click", filterRampTemp);
 
-                            /* ---- Remove Temporary Ramp Filter ---- */
-                            filterCancel(ramp_temp);
-                        }
-                        else{
-                            rampTemp.style.color = "lightgray";
+                    rampNone.addEventListener("click", filterRampNone);
+                    rampNoneCheck.addEventListener("click", filterRampNone);
 
-                            /* ---- Temporary Ramp Filter ---- */
-                            filter(ramp_temp);
-                        }
-                    });
-                    rampNone.addEventListener("click", function () {
-                        if(rampNone.style.color === "lightgray") {
-                            rampNone.style.color = "white";
+                    railBoth.addEventListener("click", filterRailBoth);
+                    railBothCheck.addEventListener("click", filterRailBoth);
 
-                            /* ---- Remove None Ramp Filter ---- */
-                            filterCancel(ramp_none);
-                        }
-                        else{
-                            rampNone.style.color = "lightgray";
+                    railOne.addEventListener("click", filterRailOne);
+                    railOneCheck.addEventListener("click", filterRailOne);
 
-                            /* ---- None Ramp Filter ---- */
-                            filter(ramp_none);
-                        }
-                    });
+                    railNone.addEventListener("click", filterRailNone);
+                    railNoneCheck.addEventListener("click", filterRailNone);
 
-                    railBoth.addEventListener("click", function () {
-                        if(railBoth.style.color === "lightgray"){
-                            railBoth.style.color = "white";
+                    slipInstall.addEventListener("click", filterSlipInstall);
+                    slipInstallCheck.addEventListener("click", filterSlipInstall);
 
-                            /* ---- Remove Both Rail Filter ---- */
-                            filterCancel(rail_both);
-                        }
-                        else{
-                            railBoth.style.color = "lightgray";
+                    slipNone.addEventListener("click", filterSlipNone);
+                    slipNoneCheck.addEventListener("click", filterSlipNone);
 
-                            /* ---- Both Rail Filter ---- */
-                            filter(rail_both);
-                        }
-                    });
-                    railOne.addEventListener("click", function () {
-                        if(railOne.style.color === "lightgray") {
-                            railOne.style.color = "white";
+                    openBoth.addEventListener("click", filterOpenBoth);
+                    openBothCheck.addEventListener("click", filterOpenBoth);
 
-                            /* ---- Remove One Rail Filter ---- */
-                            filterCancel(rail_one);
-                        }
-                        else{
-                            railOne.style.color = "lightgray";
+                    openOne.addEventListener("click", filterOpenOne);
+                    openOneCheck.addEventListener("click", filterOpenOne);
 
-                            /* ---- One Rail Filter ---- */
-                            filter(rail_one);
-                        }
-                    });
-                    railNone.addEventListener("click", function () {
-                        if(railNone.style.color === "lightgray") {
-                            railNone.style.color = "white";
+                    openNone.addEventListener("click", filterOpenNone);
+                    openNoneCheck.addEventListener("click", filterOpenNone);
 
-                            /* ---- Remove None Rail Filter ---- */
-                            filterCancel(rail_none);
-                        }
-                        else{
-                            railNone.style.color = "lightgray";
+                    tactInstall.addEventListener("click", filterTactInstall);
+                    tactInstallCheck.addEventListener("click", filterTactInstall);
 
-                            /* ---- None Rail Filter ---- */
-                            filter(rail_none);
-                        }
-                    });
+                    tactNone.addEventListener("click", filterTactNone);
+                    tactNoneCheck.addEventListener("click", filterTactNone);
 
-                    slipInstall.addEventListener("click", function () {
-                        if(slipInstall.style.color === "lightgray"){
-                            slipInstall.style.color = "white";
+                    pub.addEventListener("click", filterPublic);
+                    pubCheck.addEventListener("click", filterPublic);
 
-                            /* ---- Remove Install Slip Filter ---- */
-                            filterCancel(slip_install);
-                        }
-                        else{
-                            slipInstall.style.color = "lightgray";
+                    priv.addEventListener("click", filterPrivate);
+                    privCheck.addEventListener("click", filterPrivate);
 
-                            /* ---- Install Slip Filter ---- */
-                            filter(slip_install);
-                        }
-                    });
-                    slipNone.addEventListener("click", function () {
-                        if(slipNone.style.color === "lightgray"){
-                            slipNone.style.color = "white";
-
-                            /* ---- Remove Install Slip Filter ---- */
-                            filterCancel(slip_none);
-                        }
-                        else{
-                            slipNone.style.color = "lightgray";
-
-                            /* ---- Install Slip Filter ---- */
-                            filter(slip_none);
-                        }
-                    });
-
-                    openBoth.addEventListener("click", function () {
-                        if(openBoth.style.color === "lightgray") {
-                            openBoth.style.color = "white";
-
-                            /* ---- Remove Both Opening Filter ---- */
-                            filterCancel(open_both);
-                        }
-                        else{
-                            openBoth.style.color = "lightgray";
-
-                            /* ---- Both Opening Filter ---- */
-                            filter(open_both);
-                        }
-                    });
-                    openOne.addEventListener("click", function () {
-                        if(openOne.style.color === "lightgray") {
-                            openOne.style.color = "white";
-
-                            /* ---- Remove One Opening Filter ---- */
-                            filterCancel(open_one);
-                        }
-                        else{
-                            openOne.style.color = "lightgray";
-
-                            /* ---- One Opening Filter ---- */
-                            filter(open_one);
-                        }
-                    });
-                    openNone.addEventListener("click", function () {
-                        if(openNone.style.color === "lightgray") {
-                            openNone.style.color = "white";
-
-                            /* ---- Remove None Opening Filter ---- */
-                            filterCancel(open_none);
-                        }
-                        else{
-                            openNone.style.color = "lightgray";
-
-                            /* ---- None Opening Filter ---- */
-                            filter(open_none);
-                        }
-                    });
-
-                    tactInstall.addEventListener("click", function () {
-                        if(tactInstall.style.color === "lightgray") {
-                            tactInstall.style.color = "white";
-
-                            /* ---- Remove Installed Tactile Filter ---- */
-                            filterCancel(tact_install);
-                        }
-                        else{
-                            tactInstall.style.color = "lightgray";
-
-                            /* ---- Installed Tactile Filter ---- */
-                            filter(tact_install);
-                        }
-                    });
-                    tactNone.addEventListener("click", function () {
-                        if(tactNone.style.color === "lightgray") {
-                            tactNone.style.color = "white";
-
-                            /* ---- Remove None Tactile Filter ---- */
-                            filterCancel(tact_none);
-                        }
-                        else{
-                            tactNone.style.color = "lightgray";
-
-                            /* ---- None Tactile Filter ---- */
-                            filter(tact_none);
-                        }
-                    });
-
-                    priv.addEventListener("click", function () {
-                        if(priv.style.color === "lightgray") {
-                            priv.style.color = "white";
-
-                            /* ---- Remove Private Filter ---- */
-                            filterCancel(priv_bridge);
-                        }
-                        else{
-                            priv.style.color = "lightgray";
-
-                            /* ---- Private Filter ---- */
-                            filter(priv_bridge);
-                        }
-                    });
                 </script>
             </div>
            </th>
@@ -482,7 +293,10 @@
         }
         mymap.on('click', onMapClick);*/
 
-        addMapElements(mymap);
+        var bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature});
+        bridgeLayer.addTo(mymap);
+
+        addMapElements();
     </script>
 
 </body>

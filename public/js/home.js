@@ -7,7 +7,7 @@ var bridges = [{
         "ramp": "permanent",
         "railing": "none",
         "slip_stair": "yes",
-        "opening": "none",
+        "opening": "both",
         "tactile": "none",
         "private": "yes"
     },
@@ -37,9 +37,9 @@ var bridges = [{
         "district1": "Cannaregio",
         "district2": "Castello",
         "ramp": "none",
-        "railing": "both_side",
+        "railing": "both",
         "slip_stair": "none",
-        "opening": "both_side",
+        "opening": "none",
         "tactile": "yes",
         "private": "no"
     },
@@ -67,9 +67,9 @@ var bridges = [{
         "district1": "Castello",
         "district2": "null",
         "ramp": "temporary",
-        "railing": "one_side",
+        "railing": "one",
         "slip_stair": "none",
-        "opening": "one_side",
+        "opening": "one",
         "tactile": "yes",
         "private": "no"
     },
@@ -98,93 +98,87 @@ var bridges = [{
     }
 }];
 
+// Custom Info Control
+var info = L.control();
+
+// Style for bridges
+function style(feature) {
+    return {
+        fillColor: "#ff7800",
+        weight: 2,
+        opacity: 1,
+        color: 'purple',
+        dashArray: '3',
+        fillOpacity: 1
+    };
+}
+
+/* ---------------------------- Map Interaction Functions --------------------------- */
+
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 1
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+
+    info.update(layer.feature.properties);
+}
+
+function resetHighlight(e) {
+    bridgeLayer.resetStyle(e.target);
+    info.update();
+}
+
+function describeFeature(e) {
+    var layer = e.target;
+
+    var container = document.getElementById("descBoxContainer");
+    var description = document.getElementById("descBox");
+    container.style.display = "";
+    container.width = "300px";
+    description.style.display = "block";
+
+    addDescription(layer.feature.properties);
+
+    //mymap.fitBounds(e.target.getBounds());
+}
+
+function zoomToFeature(e) {
+    mymap.fitBounds(e.target.getBounds());
+
+    var layer = e.target;
+
+    var container = document.getElementById("descBoxContainer");
+    var description = document.getElementById("descBox");
+    container.style.display = "";
+    container.width = "300px";
+    description.style.display = "block";
+
+    addDescription(layer.feature.properties);
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: describeFeature,
+        dblclick: zoomToFeature
+    });
+}
+
+/* ---------------------------------- */
 
 function addMapElements() {
-    /* ---------------------------- Map Interaction Functions --------------------------- */
-
-    /* ------ Bridge Highlight ----------- */
-
-    function style(feature) {
-        return {
-            fillColor: "#ff7800",
-            weight: 2,
-            opacity: 1,
-            color: 'purple',
-            dashArray: '3',
-            fillOpacity: 0.7
-        };
-    }
-    L.geoJson(bridges, {style: style}).addTo(mymap);
-
-    function highlightFeature(e) {
-        var layer = e.target;
-
-        layer.setStyle({
-            weight: 5,
-            color: '#666',
-            dashArray: '',
-            fillOpacity: 0.7
-        });
-
-        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-            layer.bringToFront();
-        }
-
-        info.update(layer.feature.properties);
-    }
-
-    function resetHighlight(e) {
-        bridgeLayer.resetStyle(e.target);
-        info.update();
-    }
-
-    function describeFeature(e) {
-        var layer = e.target;
-
-        var container = document.getElementById("descBoxContainer");
-        var description = document.getElementById("descBox");
-        container.style.display = "";
-        container.width = "300px";
-        description.style.display = "block";
-
-        addDescription(layer.feature.properties);
-
-        //mymap.fitBounds(e.target.getBounds());
-    }
-
-    function zoomToFeature(e) {
-        mymap.fitBounds(e.target.getBounds());
-
-        var layer = e.target;
-
-        var container = document.getElementById("descBoxContainer");
-        var description = document.getElementById("descBox");
-        container.style.display = "";
-        container.width = "300px";
-        description.style.display = "block";
-
-        addDescription(layer.feature.properties);
-    }
-
-    function onEachFeature(feature, layer) {
-        layer.on({
-            mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            click: describeFeature,
-            dblclick: zoomToFeature
-        });
-    }
-
-    L.geoJson(bridges, {
-        style: style,
-        onEachFeature: onEachFeature
-    }).addTo(mymap);
-
-    /* ---------------------------------- */
 
     /* ------ Custom Info Control ----------- */
-
-    var info = L.control();
 
     info.onAdd = function (map) {
         this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -323,13 +317,13 @@ function addDescription(props){
         accomDiv.appendChild(rampLabel);
     }
 
-    if(railing === "one_side"){
+    if(railing === "one"){
         let railingLabel = document.createElement("label");
         railingLabel.textContent = "Railing: One Side";
         railingLabel.className = "descBoxItem";
         accomDiv.appendChild(railingLabel);
     }
-    else if(railing === "both_side"){
+    else if(railing === "both"){
         let railingLabel = document.createElement("label");
         railingLabel.textContent = "Railing: Both Sides";
         railingLabel.className = "descBoxItem";
@@ -338,19 +332,25 @@ function addDescription(props){
 
     if(slip != "none"){
         let slipLabel = document.createElement("label");
-        slipLabel.textContent = "Slip Stair Edging";
+        slipLabel.textContent = "Slip Stair Edging: Installed";
         slipLabel.className = "descBoxItem";
         accomDiv.appendChild(slipLabel);
     }
+    else{
+        let slipLabelNone = document.createElement("label");
+        slipLabelNone.textContent = "Slip Stair Edging: None";
+        slipLabelNone.className = "descBoxItem";
+        cautionDiv.appendChild(slipLabelNone);
+    }
 
-    if(open === "one_side"){
+    if(open === "one"){
         let openLabel = document.createElement("label");
         openLabel.textContent = "Canal Opening: One Side";
         openLabel.className = "descBoxItem";
         cautionDiv.appendChild(openLabel);
     }
 
-    else if(open === "both_side"){
+    else if(open === "both"){
         let openLabel = document.createElement("label");
         openLabel.textContent = "Canal Opening: Both Sides";
         openLabel.className = "descBoxItem";
@@ -362,6 +362,20 @@ function addDescription(props){
         tactLabel.textContent = "Tactile Pavement";
         tactLabel.className = "descBoxItem";
         accomDiv.appendChild(tactLabel);
+    }
+
+    if(open != "none" && tact === "none"){
+        let tactopen = document.createElement("label");
+        tactopen.textContent = "Tactile Pavement near Canal Opening: None";
+        tactopen.className = "descBoxItem";
+        cautionDiv.appendChild(tactopen);
+    }
+
+    if(open != "none" && tact != "none"){
+        let tactopen = document.createElement("label");
+        tactopen.textContent = "Tactile Pavement near Canal Opening: Installed";
+        tactopen.className = "descBoxItem";
+        accomDiv.appendChild(tactopen);
     }
 
     if(priv != "no"){
@@ -380,114 +394,373 @@ function addDescription(props){
 
 /* ------------------- Filter Functions ------------------ */
 
-var ramp_per = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.ramp === "permanent"){
-            return true
-        }
-    }
-});
-var ramp_temp = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.ramp === "temporary"){
-            return true
-        }
-    }
-});
-var ramp_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.ramp === "none"){
-            return true
-        }
-    }
-});
+function filterLayer() {
+    mymap.removeLayer(bridgeLayer);
 
-var rail_both = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.railing === "both_side"){
-            return true
-        }
-    }
-});
-var rail_one = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.railing === "one_side"){
-            return true
-        }
-    }
-});
-var rail_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.railing === "none"){
-            return true
-        }
-    }
-});
+    /*console.log("rampPerFilter: " + rampPerFilter);
+    console.log("rampTempFilter: " + rampTempFilter);
+    console.log("rampNoneFilter: " + rampNoneFilter);
+    console.log("railBothFilter: " + railBothFilter);
+    console.log("railOneFilter: " + railOneFilter);
+    console.log("railNoneFilter: " + railNoneFilter);
+    console.log("slipIntsallFilter: " + slipInstallFilter);
+    console.log("slipNoneFilter: " + slipNoneFilter);
+    console.log("openBothFilter: " + openBothFilter);
+    console.log("openOneFilter: " + openOneFilter);
+    console.log("openOneFilter: " + openOneFilter);
+    console.log("tactInstallFilter: " + tactInstallFilter);
+    console.log("tactNoneFilter: " + tactNoneFilter);
+    console.log("publicFilter: " + publicFilter);
+    console.log("privFilter: " + privFilter);*/
 
-var slip_install = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.slip_stair === "yes"){
-            return true
-        }
-    }
-});
-var slip_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.slip_stair === "none"){
-            return true
-        }
-    }
-});
 
-var open_both = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.opening === "both_side"){
-            return true
-        }
-    }
-});
-var open_one = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.opening === "one_side"){
-            return true
-        }
-    }
-});
-var open_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.opening === "none"){
-            return true
-        }
-    }
-});
+    bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature,
+            filter: function(feature, layer) {
+                if(!rampPerFilter || !rampTempFilter || !rampNoneFilter) {
+                    if (!rampPerFilter) {
+                        if (feature.properties.ramp === "permanent") {
+                            return false;
+                        }
+                    }
+                    if (!rampTempFilter) {
+                        if (feature.properties.ramp === "temporary") {
+                            return false;
+                        }
+                    }
+                    if (!rampNoneFilter) {
+                        if (feature.properties.ramp === "none") {
+                            return false;
+                        }
+                    }
+                }
+                if(!railBothFilter || !railOneFilter || !railNoneFilter) {
+                    if (!railBothFilter) {
+                        if (feature.properties.railing === "both") {
+                            return false;
+                        }
+                    }
+                    if (!railOneFilter) {
+                        if (feature.properties.railing === "one") {
+                            return false;
+                        }
+                    }
+                    if (!railNoneFilter) {
+                        if (feature.properties.railing === "none") {
+                            return false;
+                        }
+                    }
+                }
+                if(!slipInstallFilter || !slipNoneFilter) {
+                    if (!slipInstallFilter) {
+                        if (feature.properties.slip_stair === "yes") {
+                            return false;
+                        }
+                    }
+                    if (!slipNoneFilter) {
+                        if (feature.properties.slip_stair === "none") {
+                            return false;
+                        }
+                    }
+                }
+                if(!openBothFilter || !openOneFilter || !openNoneFilter) {
+                    if (!openBothFilter) {
+                        if (feature.properties.opening === "both") {
+                            return false;
+                        }
+                    }
+                    if (!openOneFilter) {
+                        if (feature.properties.opening === "one") {
+                            return false;
+                        }
+                    }
+                    if (!openNoneFilter) {
+                        if (feature.properties.opening === "none") {
+                            return false;
+                        }
+                    }
+                }
+                if(!tactInstallFilter || !tactNoneFilter) {
+                    if (!tactInstallFilter) {
+                        if (feature.properties.tactile === "yes") {
+                            return false;
+                        }
+                    }
+                    if (!tactNoneFilter) {
+                        if (feature.properties.tactile === "none") {
+                            return false;
+                        }
+                    }
+                }
+                if(privFilter || publicFilter) {
+                    if (privFilter) {
+                        if (feature.properties.private === "yes") {
+                            return true;
+                        }
+                    }
+                    if (publicFilter) {
+                        if (feature.properties.private === "no") {
+                            return true;
+                        }
+                    }
+                }
 
-var tact_install = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.tactile === "yes"){
-            return true
         }
-    }
-});
-var tact_none = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.tactile === "none"){
-            return true
-        }
-    }
-});
+    });
 
-var priv_bridge = L.geoJSON(bridges, {
-    filter: function(feature, layer) {
-        if (feature.properties.private === "yes"){
-            return true
-        }
-    }
-});
-
-function filter(aFilter) {
-    aFilter.addTo(mymap);
+    bridgeLayer.addTo(mymap);
 }
 
-function filterCancel(aFilter) {
-    aFilter.remove();
+function filterRampPer() {
+    if (!rampPerCheck.checked) {
+        rampPerCheck.checked = true;
+
+        /* ---- Remove Permanent Ramp Filter ---- */
+        rampPerFilter = true;
+        filterLayer();
+    }
+    else {
+        rampPerCheck.checked = false;
+
+        /* ---- Permanent Ramp Filter ---- */
+        rampPerFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRampTemp() {
+    if (!rampTempCheck.checked) {
+        rampTempCheck.checked = true;
+
+        /* ---- Remove Temporary Ramp Filter ---- */
+        rampTempFilter = true;
+        filterLayer();
+    }
+    else {
+        rampTempCheck.checked = false;
+
+        /* ---- Temporary Ramp Filter ---- */
+        rampTempFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRampNone() {
+    if (!rampNoneCheck.checked) {
+        rampNoneCheck.checked = true;
+
+        /* ---- Remove None Ramp Filter ---- */
+        rampNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        rampNoneCheck.checked = false;
+
+        /* ---- None Ramp Filter ---- */
+        rampNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRailBoth() {
+    if (!railBothCheck.checked) {
+        railBothCheck.checked = true;
+
+        /* ---- Remove Both Rail Filter ---- */
+        railBothFilter = true;
+        filterLayer();
+    }
+    else {
+        railBothCheck.checked = false;
+
+        /* ---- Both Rail Filter ---- */
+        railBothFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRailOne() {
+    if (!railOneCheck.checked) {
+        railOneCheck.checked = true;
+
+        /* ---- Remove One Rail Filter ---- */
+        railOneFilter = true;
+        filterLayer();
+    }
+    else {
+        railOneCheck.checked = false;
+
+        /* ---- One Rail Filter ---- */
+        railOneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterRailNone() {
+    if (!railNoneCheck.checked) {
+        railNoneCheck.checked = true;
+
+        /* ---- Remove None Rail Filter ---- */
+        railNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        railNoneCheck.checked = false;
+
+        /* ---- None Rail Filter ---- */
+        railNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterSlipInstall() {
+    if (!slipInstallCheck.checked) {
+        slipInstallCheck.checked = true;
+
+        /* ---- Remove Install Slip Filter ---- */
+        slipInstallFilter = true;
+        filterLayer();
+    }
+    else {
+        slipInstallCheck.checked = false;
+
+        /* ---- Install Slip Filter ---- */
+        slipInstallFilter = false;
+        filterLayer();
+    }
+}
+
+function filterSlipNone() {
+    if (!slipNoneCheck.checked) {
+        slipNoneCheck.checked = true;
+
+        /* ---- Remove Install Slip Filter ---- */
+        slipNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        slipNoneCheck.checked = false;
+
+        /* ---- Install Slip Filter ---- */
+        slipNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterOpenBoth() {
+    if (!openBothCheck.checked) {
+        openBothCheck.checked = true;
+
+        /* ---- Remove Both Opening Filter ---- */
+        openBothFilter = true;
+        filterLayer();
+    }
+    else {
+        openBothCheck.checked = false;
+
+        /* ---- Both Opening Filter ---- */
+        openBothFilter = false;
+        filterLayer();
+    }
+}
+
+function filterOpenOne() {
+    if (!openOneCheck.checked) {
+        openOneCheck.checked = true;
+
+        /* ---- Remove One Opening Filter ---- */
+        openOneFilter = true;
+        filterLayer();
+    }
+    else {
+        openOneCheck.checked = false;
+
+        /* ---- One Opening Filter ---- */
+        openOneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterOpenNone() {
+    if (!openNoneCheck.checked) {
+        openNoneCheck.checked = true;
+
+        /* ---- Remove None Opening Filter ---- */
+        openNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        openNoneCheck.checked = false;
+
+        /* ---- None Opening Filter ---- */
+        openNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterTactInstall() {
+    if (!tactInstallCheck.checked) {
+        tactInstallCheck.checked = true;
+
+        /* ---- Remove Installed Tactile Filter ---- */
+        tactInstallFilter = true;
+        filterLayer();
+    }
+    else {
+        tactInstallCheck.checked = false;
+
+        /* ---- Installed Tactile Filter ---- */
+        tactInstallFilter = false;
+        filterLayer();
+    }
+}
+
+function filterTactNone() {
+    if (!tactNoneCheck.checked) {
+        tactNoneCheck.checked = true;
+
+        /* ---- Remove None Tactile Filter ---- */
+        tactNoneFilter = true;
+        filterLayer();
+    }
+    else {
+        tactNoneCheck.checked = false;
+
+        /* ---- None Tactile Filter ---- */
+        tactNoneFilter = false;
+        filterLayer();
+    }
+}
+
+function filterPublic() {
+    if (!pubCheck.checked) {
+        pubCheck.checked = true;
+
+        /* ---- Remove Private Filter ---- */
+        publicFilter = true;
+        filterLayer();
+    }
+    else {
+        pubCheck.checked = false;
+
+        /*---- Private Filter ---- */
+        publicFilter = false;
+        filterLayer();
+    }
+}
+
+function filterPrivate() {
+    if (!privCheck.checked) {
+        privCheck.checked = true;
+
+        /* ---- Remove Private Filter ---- */
+        privFilter = true;
+        filterLayer();
+    }
+    else {
+        privCheck.checked = false;
+
+        /*---- Private Filter ---- */
+        privFilter = false;
+        filterLayer();
+    }
 }
