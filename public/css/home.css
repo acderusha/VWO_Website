@@ -76,15 +76,14 @@
 
 .headerBtn {
     cursor: pointer;
-    padding: 10px 10px 10px 10px;
-    margin: 8px 10px 10px 18px;
-    font-size: 16px;
-    font-family: "Helvetica";
-    color: lightgray;
+    padding: 10px 10px 7px 10px;
+    margin: 5px 10px 10px 20px;
+    font-size: 25px;
+    color: white;
 }
 
 .headerBtn:hover {
-    color: white;
+    border-bottom: 3px white solid;
 }
 
 .headerLeft {

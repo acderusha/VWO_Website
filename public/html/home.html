@@ -9,6 +9,7 @@
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
             integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
@@ -18,9 +19,11 @@
 <body style="padding-top: 50px">
     <div class="body">
         <div class="header" style="left: 0px">
-            <div id="homeBtn" class="headerBtn headerLeft"><b>HOME</b></div>
-            <div id="bridgeBtn" class="headerBtn headerLeft"><b>BRIDGES</b></div>
-            <div id="projectLogo" class="headerBtn headerRight"><b>VENICE WITHOUT OBSTACLES</b></div>
+            <div id="homeBtn" class="headerBtn headerLeft">Map</div>
+            <div id="bridgeBtn" class="headerBtn headerLeft">Bridge</div>
+            <div id="bridgeBtn" class="headerBtn headerLeft">Hotels</div>
+            <div id="bridgeBtn" class="headerBtn headerLeft">Restaurants</div>
+            <div id="projectLogo" class="headerBtn headerRight">Venice Without Obstacles</div>
         </div>
     </div>
 
@@ -28,7 +31,7 @@
        <tr>
            <th class="filterSection" valign="top">
             <div id="filterBox" class="filterBox">
-                <div style="color: lightgray; font-size: 20px; border-bottom: 1px lightgray solid; padding-bottom: 3px">
+                <div style="color: white; font-size: 20px; border-bottom: 1px white solid; padding-bottom: 2px; margin-bottom: 1px">
                     Filters
                 </div>
                 <div id="rampDiv" class="filterBoxItemClick" onclick="showRamp()">
@@ -224,7 +227,7 @@
                        <th width="100%" valign="top">
                            <div id="mapid"></div>
                        </th>
-                       <th id="descBoxContainer">
+                       <th id="descBoxContainer" valign="top">
                            <div id="descBox" class="descBox" >
                                <div style="width: 100%; height: 10px">
                                    <button id="close" class="closeBtn">&times;</button>
@@ -245,7 +248,7 @@
                                </div>
                                <div id="infoDiv" style="float: left"></div>
                                <div class="descBoxItemMain" style="margin-top: 20px">
-                                   <i style="font-size:15px; color: lightgray" class="fa">&#xf193;</i>
+                                   <i style="font-size:16px; color: lightgray" class="fab fa-accessible-icon"></i>
                                    Accommodations
                                </div>
                                <div id="accomDiv" style="float: left"></div>
