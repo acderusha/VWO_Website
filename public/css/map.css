@@ -1,6 +1,6 @@
 #mapid {
     /* Fix height adjustment for later */
-    min-height: 77vh;
+    min-height: 78vh;
     height: 100%;
     z-index: 0;
 
@@ -9,7 +9,7 @@
 
     border-style: solid;
     border-width: 1px;
-    border-radius: 20px;
+    border-radius: 10px;
     border-color: darkgrey;
 }
 
@@ -65,21 +65,29 @@
 .header {
     position: fixed;
     width: 100%;
-    min-height: 50px;
-    height: 50px;
+    min-height: 40px;
+    height: 40px;
     z-index: 1;
 
     top: 0;
-    background-color: black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0px 4px 5px rgba(0,0,0,.3);
 }
 
 .headerBtn {
+    height: 100%;
+
     cursor: pointer;
-    padding: 10px 10px 7px 10px;
-    margin: 5px 10px 10px 20px;
-    font-size: 25px;
+    padding: 10px 10px 10px 10px;
+    margin: 0px 10px 10px 20px;
+    font-size: 20px;
     color: white;
+    font-family: 'Gilroy-SemiBold';
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 1);;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .headerBtn:hover {
@@ -94,23 +102,58 @@
     float: right;
 }
 
+.headerLabel {
+    height: 100%;
+
+    cursor: pointer;
+    padding: 10px 10px 10px 10px;
+    margin: 0px 10px 0px 10px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Gilroy-SemiBold';
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 1);;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.headerIcon {
+    width: 30px;
+    height: 30px;
+    margin: 5px 25px 5px 25px;
+
+    box-shadow: 2px 2px 15px rgba(0,0,0,.5);
+}
+
+.headerIcon:hover{
+    cursor: pointer;
+    width: 31px;
+    height: 31px;
+}
+
 .filterSection {
     width: 200px;
 }
 
 .filterBox {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
     background-color: black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 7px 5px rgba(0,0,0,.3);
 
-    width: 210px;
-    max-height: 630px;
+    width: 190px;
+    height: 100%;
 
-    overflow: auto;
+    padding: 10px 0px 10px 10px;
 
-    padding: 10px 10px 10px 10px;
-    margin: 10px 10px 10px 10px;
+    text-align: center;
+    alignment: center;
+    overflow-x: hidden;
 
-    border-radius: 10px;
+    z-index: 2;
 }
 
 .filterBoxItem {
@@ -121,6 +164,25 @@
     padding: 4px 10px 4px 10px;
 
     margin-left: 30px;
+
+    font-family: Georgia;
+}
+
+.filterBoxItemHeader {
+    cursor: pointer;
+
+    width: 100%;
+    height: 25px;
+    text-align: center;
+
+    color: white;
+    font-size: 18px;
+
+    padding: 0px 10px 4px 0px;
+    border-bottom: gray 1px solid;
+    margin-bottom: 2px;
+
+    font-family: Georgia;
 }
 
 .filterBoxItemClick {
@@ -129,14 +191,12 @@
     text-align: left;
     float: left;
     color: white;
-    font-size: 16px;
+    font-size: 17px;
 
     padding: 6px 10px 6px 10px;
+    margin-left: 5px;
+    margin-top: 3px;
 }
-
-/*.filterBoxItemClick:hover{
-    color: white;
-}*/
 
 .filterCheck {
     z-index: 1;
@@ -161,16 +221,20 @@
     text-align: center;
 }
 
+.mapTable {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+}
+
 .mapDescTable {
     width: 100%;
-
     margin-right: 10px;
 }
 
 .descBox {
     background: black;
     width: 250px;
-    min-height: 77vh;
+    min-height: 78vh;
 
     border-radius: 10px;
     border-style: solid;
