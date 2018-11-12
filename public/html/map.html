@@ -20,207 +20,202 @@
 <body style="padding-top: 40px">
     <div class="body">
         <div class="header" style="left: 0px">
-            <div id="homeBtn" class="headerBtn headerLeft">Home</div>
-            <div id="travrelBtn" class="headerBtn headerLeft">Travel</div>
-            <div id="actBtn" class="headerBtn headerLeft">Activities</div>
-            <div id="nightBtn" class="headerBtn headerLeft">Staying the Night</div>
-            <div id="dinningBtn" class="headerBtn headerLeft">Dinning</div>
-            <div id="orgBtn" class="headerBtn headerLeft">Organizations</div>
-            <div id="appBtn" class="headerBtn headerLeft">Applications</div>
-            <div id="mapBtn" class="headerBtn headerLeft">Map</div>
+            <div id="filter" class="headerLabel headerLeft">Filters: Bridges</div>
+            <div class="headerRight"><img class="headerIcon" src="images/icons/Hamburger_icon_white.png"></div>
+            <div id="dinningBtn" class="headerBtn headerRight">Museums</div>
+            <div id="nightBtn" class="headerBtn headerRight">Churches</div>
+            <div id="actBtn" class="headerBtn headerRight">Restaurants</div>
+            <div id="travrelBtn" class="headerBtn headerRight">Hotels</div>
+            <div id="homeBtn" class="headerBtn headerRight">Bridges</div>
         </div>
     </div>
 
-    <table id="table" width="100% !important">
+    <div id="filterBox" class="filterBox">
+        <div id="rampDiv" class="filterBoxItemClick">
+            Ramps<br>
+        </div>
+        <div id="perm" class="filterBoxItem">
+            <input id="rampPerCheck" type="checkbox" class="filterCheck" checked>
+            Permanent
+        </div>
+        <div id="temp" class="filterBoxItem">
+            <input id="rampTempCheck" type="checkbox" class="filterCheck" checked>
+            Temporary
+        </div>
+        <div id="ramp_none" class="filterBoxItem">
+            <input id="rampNoneCheck" type="checkbox" class="filterCheck" checked>
+            No Ramp
+        </div>
+        <div id="railDiv"class="filterBoxItemClick">
+            Railing<br>
+        </div>
+        <div id="both" class="filterBoxItem">
+            <input id="railBothCheck" type="checkbox" class="filterCheck" checked>
+            Both Sides
+        </div>
+        <div id="one" class="filterBoxItem">
+            <input id="railOneCheck" type="checkbox" class="filterCheck" checked>
+            One Side
+        </div>
+        <div id="rail_none" class="filterBoxItem">
+            <input id="railNoneCheck" type="checkbox" class="filterCheck" checked>
+            No Railings
+        </div>
+        <div id="slipDiv" class="filterBoxItemClick">
+            Slip Stair Edging <br>
+        </div>
+        <div id="installSlip" class="filterBoxItem">
+            <input id="slipInstallCheck" type="checkbox" class="filterCheck" checked>
+            Installed Edging
+        </div>
+        <div id="noneSlip" class="filterBoxItem">
+            <input id="slipNoneCheck" type="checkbox" class="filterCheck" checked>
+            No Edging
+        </div>
+        <div id="openDiv" class="filterBoxItemClick">
+            Canal Opening<br>
+        </div>
+        <div id="openBoth" class="filterBoxItem">
+            <input id="openBothCheck" type="checkbox" class="filterCheck" checked>
+            Opening Both Sides
+        </div>
+        <div id="openOne" class="filterBoxItem">
+            <input id="openOneCheck" type="checkbox" class="filterCheck" checked>
+            Opening One Side
+        </div>
+        <div id="openNone" class="filterBoxItem">
+            <input id="openNoneCheck" type="checkbox" class="filterCheck" checked>
+            No Openings
+        </div>
+        <div id="tactDiv" class="filterBoxItemClick">
+            Tactile Pavement<br>
+        </div>
+        <div id="installTact" class="filterBoxItem">
+            <input id="tactInstallCheck" type="checkbox" class="filterCheck" checked>
+            Installed Tactile
+        </div>
+        <div id="noneTact" class="filterBoxItem">
+            <input id="tactNoneCheck" type="checkbox" class="filterCheck" checked>
+            No Tactile
+        </div>
+        <div id="propDiv" class="filterBoxItemClick" onclick="showProp()">
+            Property<br>
+        </div>
+        <div id="pub" class="filterBoxItem">
+            <input id="pubCheck" type="checkbox" class="filterCheck" checked>
+            Public
+        </div>
+        <div id="priv" class="filterBoxItem">
+            <input id="privCheck" type="checkbox" class="filterCheck" checked>
+            Private
+        </div>
+
+        <script>
+            var rampPer = document.getElementById("perm");
+            var rampTemp = document.getElementById("temp");
+            var rampNone = document.getElementById("ramp_none");
+            var rampPerCheck = document.getElementById("rampPerCheck");
+            var rampTempCheck = document.getElementById("rampTempCheck");
+            var rampNoneCheck = document.getElementById("rampNoneCheck");
+
+            var railBoth = document.getElementById("both");
+            var railOne = document.getElementById("one");
+            var railNone = document.getElementById("rail_none");
+            var railBothCheck = document.getElementById("railBothCheck");
+            var railOneCheck = document.getElementById("railOneCheck");
+            var railNoneCheck = document.getElementById("railNoneCheck");
+
+            var slipInstall = document.getElementById("installSlip");
+            var slipNone = document.getElementById("noneSlip");
+            var slipInstallCheck = document.getElementById("slipInstallCheck");
+            var slipNoneCheck = document.getElementById("slipNoneCheck");
+
+            var openBoth = document.getElementById("openBoth");
+            var openOne = document.getElementById("openOne");
+            var openNone = document.getElementById("openNone");
+            var openBothCheck = document.getElementById("openBothCheck");
+            var openOneCheck = document.getElementById("openOneCheck");
+            var openNoneCheck = document.getElementById("openNoneCheck");
+
+            var tactInstall = document.getElementById("installTact");
+            var tactNone = document.getElementById("noneTact");
+            var tactInstallCheck = document.getElementById("tactInstallCheck");
+            var tactNoneCheck = document.getElementById("tactNoneCheck");
+
+            var pub = document.getElementById("pub");
+            var priv = document.getElementById("priv");
+            var pubCheck = document.getElementById("pubCheck");
+            var privCheck = document.getElementById("privCheck");
+
+
+            /* -------------------------- Filter Event Listeners ---------------------- */
+
+            var rampPerFilter = true;
+            var rampTempFilter = true;
+            var rampNoneFilter = true;
+            var railBothFilter = true;
+            var railOneFilter = true;
+            var railNoneFilter = true;
+            var slipInstallFilter = true;
+            var slipNoneFilter = true;
+            var openBothFilter = true;
+            var openOneFilter = true;
+            var openNoneFilter = true;
+            var tactInstallFilter = true;
+            var tactNoneFilter = true;
+            var publicFilter = true;
+            var privFilter = true;
+
+            rampPer.addEventListener("click", filterRampPer);
+            rampPerCheck.addEventListener("click", filterRampPer);
+
+            rampTemp.addEventListener("click", filterRampTemp);
+            rampTempCheck.addEventListener("click", filterRampTemp);
+
+            rampNone.addEventListener("click", filterRampNone);
+            rampNoneCheck.addEventListener("click", filterRampNone);
+
+            railBoth.addEventListener("click", filterRailBoth);
+            railBothCheck.addEventListener("click", filterRailBoth);
+
+            railOne.addEventListener("click", filterRailOne);
+            railOneCheck.addEventListener("click", filterRailOne);
+
+            railNone.addEventListener("click", filterRailNone);
+            railNoneCheck.addEventListener("click", filterRailNone);
+
+            slipInstall.addEventListener("click", filterSlipInstall);
+            slipInstallCheck.addEventListener("click", filterSlipInstall);
+
+            slipNone.addEventListener("click", filterSlipNone);
+            slipNoneCheck.addEventListener("click", filterSlipNone);
+
+            openBoth.addEventListener("click", filterOpenBoth);
+            openBothCheck.addEventListener("click", filterOpenBoth);
+
+            openOne.addEventListener("click", filterOpenOne);
+            openOneCheck.addEventListener("click", filterOpenOne);
+
+            openNone.addEventListener("click", filterOpenNone);
+            openNoneCheck.addEventListener("click", filterOpenNone);
+
+            tactInstall.addEventListener("click", filterTactInstall);
+            tactInstallCheck.addEventListener("click", filterTactInstall);
+
+            tactNone.addEventListener("click", filterTactNone);
+            tactNoneCheck.addEventListener("click", filterTactNone);
+
+            pub.addEventListener("click", filterPublic);
+            pubCheck.addEventListener("click", filterPublic);
+
+            priv.addEventListener("click", filterPrivate);
+            privCheck.addEventListener("click", filterPrivate);
+
+        </script>
+    </div>
+
+    <table id="table" class="mapTable">
        <tr>
-           <th class="filterSection" valign="top">
-            <div id="filterBox" class="filterBox">
-                <div style="color: white; font-size: 20px; border-bottom: 1px white solid; padding-bottom: 2px; margin-bottom: 1px">
-                    Filters
-                </div>
-                <div id="rampDiv" class="filterBoxItemClick" onclick="showRamp()">
-                    Ramps<br>
-                </div>
-                <div id="perm" class="filterBoxItem">
-                    <input id="rampPerCheck" type="checkbox" class="filterCheck" checked>
-                    Permanent
-                </div>
-                <div id="temp" class="filterBoxItem">
-                    <input id="rampTempCheck" type="checkbox" class="filterCheck" checked>
-                    Temporary
-                </div>
-                <div id="ramp_none" class="filterBoxItem">
-                    <input id="rampNoneCheck" type="checkbox" class="filterCheck" checked>
-                    No Ramp
-                </div>
-                <div id="railDiv"class="filterBoxItemClick" onclick="showRail()">
-                    Railing<br>
-                </div>
-                <div id="both" class="filterBoxItem">
-                    <input id="railBothCheck" type="checkbox" class="filterCheck" checked>
-                    Both Sides
-                </div>
-                <div id="one" class="filterBoxItem">
-                    <input id="railOneCheck" type="checkbox" class="filterCheck" checked>
-                    One Side
-                </div>
-                <div id="rail_none" class="filterBoxItem">
-                    <input id="railNoneCheck" type="checkbox" class="filterCheck" checked>
-                    No Railings
-                </div>
-                <div id="slipDiv" class="filterBoxItemClick" onclick="showSlip()">
-                    Slip Stair Edging <br>
-                </div>
-                <div id="installSlip" class="filterBoxItem">
-                    <input id="slipInstallCheck" type="checkbox" class="filterCheck" checked>
-                    Installed Edging
-                </div>
-                <div id="noneSlip" class="filterBoxItem">
-                    <input id="slipNoneCheck" type="checkbox" class="filterCheck" checked>
-                    No Edging
-                </div>
-                <div id="openDiv" class="filterBoxItemClick" onclick="showOpen()">
-                    Canal Opening<br>
-                </div>
-                <div id="openBoth" class="filterBoxItem">
-                    <input id="openBothCheck" type="checkbox" class="filterCheck" checked>
-                    Opening Both Sides
-                </div>
-                <div id="openOne" class="filterBoxItem">
-                    <input id="openOneCheck" type="checkbox" class="filterCheck" checked>
-                    Opening One Side
-                </div>
-                <div id="openNone" class="filterBoxItem">
-                    <input id="openNoneCheck" type="checkbox" class="filterCheck" checked>
-                    No Openings
-                </div>
-                <div id="tactDiv" class="filterBoxItemClick" onclick="showTact()">
-                    Tactile Pavement<br>
-                </div>
-                <div id="installTact" class="filterBoxItem">
-                    <input id="tactInstallCheck" type="checkbox" class="filterCheck" checked>
-                    Installed Tactile
-                </div>
-                <div id="noneTact" class="filterBoxItem">
-                    <input id="tactNoneCheck" type="checkbox" class="filterCheck" checked>
-                    No Tactile
-                </div>
-                <div id="propDiv" class="filterBoxItemClick" onclick="showProp()">
-                    Property<br>
-                </div>
-                <div id="pub" class="filterBoxItem">
-                    <input id="pubCheck" type="checkbox" class="filterCheck" checked>
-                    Public
-                </div>
-                <div id="priv" class="filterBoxItem">
-                    <input id="privCheck" type="checkbox" class="filterCheck" checked>
-                    Private
-                </div>
-
-                <script>
-                    var rampPer = document.getElementById("perm");
-                    var rampTemp = document.getElementById("temp");
-                    var rampNone = document.getElementById("ramp_none");
-                    var rampPerCheck = document.getElementById("rampPerCheck");
-                    var rampTempCheck = document.getElementById("rampTempCheck");
-                    var rampNoneCheck = document.getElementById("rampNoneCheck");
-
-                    var railBoth = document.getElementById("both");
-                    var railOne = document.getElementById("one");
-                    var railNone = document.getElementById("rail_none");
-                    var railBothCheck = document.getElementById("railBothCheck");
-                    var railOneCheck = document.getElementById("railOneCheck");
-                    var railNoneCheck = document.getElementById("railNoneCheck");
-
-                    var slipInstall = document.getElementById("installSlip");
-                    var slipNone = document.getElementById("noneSlip");
-                    var slipInstallCheck = document.getElementById("slipInstallCheck");
-                    var slipNoneCheck = document.getElementById("slipNoneCheck");
-
-                    var openBoth = document.getElementById("openBoth");
-                    var openOne = document.getElementById("openOne");
-                    var openNone = document.getElementById("openNone");
-                    var openBothCheck = document.getElementById("openBothCheck");
-                    var openOneCheck = document.getElementById("openOneCheck");
-                    var openNoneCheck = document.getElementById("openNoneCheck");
-
-                    var tactInstall = document.getElementById("installTact");
-                    var tactNone = document.getElementById("noneTact");
-                    var tactInstallCheck = document.getElementById("tactInstallCheck");
-                    var tactNoneCheck = document.getElementById("tactNoneCheck");
-
-                    var pub = document.getElementById("pub");
-                    var priv = document.getElementById("priv");
-                    var pubCheck = document.getElementById("pubCheck");
-                    var privCheck = document.getElementById("privCheck");
-
-
-                    /* -------------------------- Filter Event Listeners ---------------------- */
-
-                    var rampPerFilter = true;
-                    var rampTempFilter = true;
-                    var rampNoneFilter = true;
-                    var railBothFilter = true;
-                    var railOneFilter = true;
-                    var railNoneFilter = true;
-                    var slipInstallFilter = true;
-                    var slipNoneFilter = true;
-                    var openBothFilter = true;
-                    var openOneFilter = true;
-                    var openNoneFilter = true;
-                    var tactInstallFilter = true;
-                    var tactNoneFilter = true;
-                    var publicFilter = true;
-                    var privFilter = true;
-
-                    rampPer.addEventListener("click", filterRampPer);
-                    rampPerCheck.addEventListener("click", filterRampPer);
-
-                    rampTemp.addEventListener("click", filterRampTemp);
-                    rampTempCheck.addEventListener("click", filterRampTemp);
-
-                    rampNone.addEventListener("click", filterRampNone);
-                    rampNoneCheck.addEventListener("click", filterRampNone);
-
-                    railBoth.addEventListener("click", filterRailBoth);
-                    railBothCheck.addEventListener("click", filterRailBoth);
-
-                    railOne.addEventListener("click", filterRailOne);
-                    railOneCheck.addEventListener("click", filterRailOne);
-
-                    railNone.addEventListener("click", filterRailNone);
-                    railNoneCheck.addEventListener("click", filterRailNone);
-
-                    slipInstall.addEventListener("click", filterSlipInstall);
-                    slipInstallCheck.addEventListener("click", filterSlipInstall);
-
-                    slipNone.addEventListener("click", filterSlipNone);
-                    slipNoneCheck.addEventListener("click", filterSlipNone);
-
-                    openBoth.addEventListener("click", filterOpenBoth);
-                    openBothCheck.addEventListener("click", filterOpenBoth);
-
-                    openOne.addEventListener("click", filterOpenOne);
-                    openOneCheck.addEventListener("click", filterOpenOne);
-
-                    openNone.addEventListener("click", filterOpenNone);
-                    openNoneCheck.addEventListener("click", filterOpenNone);
-
-                    tactInstall.addEventListener("click", filterTactInstall);
-                    tactInstallCheck.addEventListener("click", filterTactInstall);
-
-                    tactNone.addEventListener("click", filterTactNone);
-                    tactNoneCheck.addEventListener("click", filterTactNone);
-
-                    pub.addEventListener("click", filterPublic);
-                    pubCheck.addEventListener("click", filterPublic);
-
-                    priv.addEventListener("click", filterPrivate);
-                    privCheck.addEventListener("click", filterPrivate);
-
-                </script>
-            </div>
-           </th>
            <th id="mapSection" valign="top">
                <div align="left" class="searchBarContainer">
                    <input type="text"  class="searchBar" id="searchBar" placeholder="Search Bridge Name...">

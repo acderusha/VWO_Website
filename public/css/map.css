@@ -1,6 +1,6 @@
 #mapid {
     /* Fix height adjustment for later */
-    min-height: 77vh;
+    min-height: 78vh;
     height: 100%;
     z-index: 0;
 
@@ -9,7 +9,7 @@
 
     border-style: solid;
     border-width: 1px;
-    border-radius: 20px;
+    border-radius: 10px;
     border-color: darkgrey;
 }
 
@@ -67,11 +67,11 @@
     width: 100%;
     min-height: 40px;
     height: 40px;
-    z-index: 1;
+    z-index: 2;
 
     top: 0;
     background-color: black;
-    box-shadow: 0px 7px 5px rgba(0,0,0,.3);
+    box-shadow: 0px 4px 5px rgba(0,0,0,.3);
 }
 
 .headerBtn {
@@ -102,17 +102,32 @@
     float: right;
 }
 
-.headerIcon {
+.headerLabel {
+    height: 100%;
+
     cursor: pointer;
-
-    width: 40px;
-    height: 38px;
-
-    margin: 6px 20px 6px 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 0px 10px 0px 10px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Gilroy-SemiBold';
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 1);;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.headerIcon {
+    width: 30px;
+    height: 30px;
+    margin: 5px 25px 5px 25px;
+}
+
+.headerIcon:hover{
+    cursor: pointer;
+    width: 31px;
+    height: 31px;
 }
 
 .filterSection {
@@ -120,18 +135,24 @@
 }
 
 .filterBox {
+    position: fixed;
+    top: 30px;
+    left: 0px;
+
     background-color: black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 7px 5px rgba(0,0,0,.3);
 
-    width: 210px;
-    max-height: 630px;
+    width: 170px;
+    height: 100%;
 
-    overflow: auto;
-
-    padding: 10px 10px 10px 10px;
-    margin: 10px 10px 10px 10px;
-
+    padding: 15px 0px 10px 20px;
     border-radius: 10px;
+
+    text-align: center;
+    alignment: center;
+    overflow-x: hidden;
+
+    z-index: 1;
 }
 
 .filterBoxItem {
@@ -142,6 +163,21 @@
     padding: 4px 10px 4px 10px;
 
     margin-left: 30px;
+
+    font-family: Georgia;
+}
+
+.filterBoxItemHeader {
+    width: 100%;
+
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    padding: 0px 10px 4px 10px;
+    margin-bottom: 2px;
+
+    font-family: Georgia;
 }
 
 .filterBoxItemClick {
@@ -150,14 +186,10 @@
     text-align: left;
     float: left;
     color: white;
-    font-size: 16px;
+    font-size: 17px;
 
     padding: 6px 10px 6px 10px;
 }
-
-/*.filterBoxItemClick:hover{
-    color: white;
-}*/
 
 .filterCheck {
     z-index: 1;
@@ -182,16 +214,20 @@
     text-align: center;
 }
 
+.mapTable {
+    width: calc(100% - 190px);
+    margin-left: 190px;
+}
+
 .mapDescTable {
     width: 100%;
-
     margin-right: 10px;
 }
 
 .descBox {
     background: black;
     width: 250px;
-    min-height: 77vh;
+    min-height: 78vh;
 
     border-radius: 10px;
     border-style: solid;
