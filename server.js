@@ -29,14 +29,10 @@ var server = http.createServer (function (req, res) {
             sendFile(res,'public'+ req.url,'image/jpg/png');
         }
         else if(req.url.includes("/geoJSON/")) {
-            sendFile(res,'public'+ req.url,'geojson/json');
+            sendFile(res,'public'+ req.url,'text/json');
         }
         else if(req.url === "/js/map.js") {
             sendFile(res, 'public/js/map.js', 'text/javascript');
-        }
-        else if(req.url === "/bridgeLayer") {
-            var bridgeData = require('./geoJSON/cityknowledge-MERGE_Ponti-export.json');
-            console.log(bridgeData[0]);
         }
         else{
             sendFile(res, 'public/index_404.html')
