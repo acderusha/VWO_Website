@@ -1,4 +1,4 @@
-var bridges = [{
+/*var bridges = [{
     "type": "Feature",
     "properties": {
         "name": "Ponte DonÃ ",
@@ -96,7 +96,10 @@ var bridges = [{
             [12.342792943181951,45.44180946122445]
         ]]
     }
-}];
+}];*/
+
+/* ------ Bridge Array -------- */
+var bridges = [];
 
 // Custom Info Control
 var info = L.control();
@@ -177,6 +180,10 @@ function onEachFeature(feature, layer) {
 /* ---------------------------------- */
 
 function addMapElements() {
+
+    /* ------ GET Bridge Data ------------ */
+    getBridges();
+
 
     /* ------ Custom Info Control ----------- */
 
@@ -396,23 +403,6 @@ function addDescription(props){
 
 function filterLayer() {
     mymap.removeLayer(bridgeLayer);
-
-    /*console.log("rampPerFilter: " + rampPerFilter);
-    console.log("rampTempFilter: " + rampTempFilter);
-    console.log("rampNoneFilter: " + rampNoneFilter);
-    console.log("railBothFilter: " + railBothFilter);
-    console.log("railOneFilter: " + railOneFilter);
-    console.log("railNoneFilter: " + railNoneFilter);
-    console.log("slipIntsallFilter: " + slipInstallFilter);
-    console.log("slipNoneFilter: " + slipNoneFilter);
-    console.log("openBothFilter: " + openBothFilter);
-    console.log("openOneFilter: " + openOneFilter);
-    console.log("openOneFilter: " + openOneFilter);
-    console.log("tactInstallFilter: " + tactInstallFilter);
-    console.log("tactNoneFilter: " + tactNoneFilter);
-    console.log("publicFilter: " + publicFilter);
-    console.log("privFilter: " + privFilter);*/
-
 
     bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature,
             filter: function(feature, layer) {
@@ -763,4 +753,28 @@ function filterPrivate() {
         privFilter = false;
         filterLayer();
     }
+}
+
+/* -------------- GET Layer Functions ----------------- */
+function getLayers() {
+    getBridges();
+}
+
+function getBridges() {
+    xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = handle_res;
+    xhr.open("GET", "/bridgeLayer");
+
+    function handle_res() {
+        if(this.readyState !=4)return;
+        if(this.status != 200){
+            console.log(this.status);
+        }
+        //var data = JSON.parse(this.responseText);
+        //console.log(data);
+
+        var bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature});
+        bridgeLayer.addTo(mymap);
+    }
+    xhr.send();
 }

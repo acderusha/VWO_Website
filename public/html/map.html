@@ -14,6 +14,7 @@
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
             integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
             crossorigin=""></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/map.js"></script>
 </head>
 <body style="padding-top: 50px">
@@ -297,8 +298,7 @@
         }
         mymap.on('click', onMapClick);*/
 
-        var bridgeLayer = L.geoJson(bridges, {style: style, onEachFeature: onEachFeature});
-        bridgeLayer.addTo(mymap);
+        getLayers();
 
         addMapElements();
     </script>
