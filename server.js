@@ -20,16 +20,16 @@ var server = http.createServer (function (req, res) {
   switch(req.method){
       case "GET":
         if(req.url === "/"){
-            sendFile(res, 'public/html/home.html')
+            sendFile(res, 'public/html/map.html')
         }
-        else if(req.url === "/css/home.css") {
-            sendFile(res,'public/css/home.css', 'text/css')
+        else if(req.url === "/css/map.css") {
+            sendFile(res,'public/css/map.css', 'text/css')
         }
         else if(req.url.includes("/images/")) {
             sendFile(res,'public'+ req.url,'image/jpg/png');
         }
-        else if(req.url === "/js/home.js") {
-            sendFile(res, 'public/js/home.js', 'text/javascript');
+        else if(req.url === "/js/map.js") {
+            sendFile(res, 'public/js/map.js', 'text/javascript');
         }
         else{
             sendFile(res, 'public/index_404.html')
